@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <h1 className="text-sm">Stori | Newsletter</h1>
+    <h1 className="font-bold text-3xl">Stori | Newsletter</h1>
   </StrictMode>,
 );
 

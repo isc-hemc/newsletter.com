@@ -3,14 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.31",
-    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "concurrently": "^8.0.1",
     "eslint": "^8.25.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -25,9 +20,21 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "^2.7.1"
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.3.1"
   },
   "dependencies": {
+    "@emotion/css": "^11.10.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.23",
+    "@types/react": "^18.0.31",
+    "@types/react-dom": "^18.0.11",
+    "clomp": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -35,10 +42,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build:app": "yarn build:css && react-scripts build",
+    "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/index.css",
     "precommit": "tsc && npx lint-staged",
     "prepare": "husky install",
-    "start": "react-scripts start",
+    "start:css": "TAILWIND_MODE=watch postcss src/assets/css/tailwind.css -o src/assets/css/index.css --watch",
+    "start:app": "yarn build:css && concurrently \"react-scripts start\" \"yarn start:css\"",
     "test": "react-scripts test"
   },
   "eslintConfig": {

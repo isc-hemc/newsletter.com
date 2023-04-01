@@ -1,3 +1,5 @@
+import './assets/css/index.css';
+
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -9,7 +11,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <h1>Stori | Newsletter</h1>
+    <h1 className="text-sm">Stori | Newsletter</h1>
   </StrictMode>,
 );
 

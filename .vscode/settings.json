@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    80
+  ],
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "ts",
+    "tsx"
+  ],
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false
+}

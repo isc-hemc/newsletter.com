@@ -1,5 +1,6 @@
 import './assets/css/index.css';
 
+import { App } from 'App';
 import { i18n } from 'locales';
 import { ContactsPage } from 'pages/Contacts';
 import { DashboardPage } from 'pages/Dashboard';
@@ -14,16 +15,21 @@ import reportWebVitals from 'reportWebVitals';
 
 export const router = createBrowserRouter([
   {
-    element: <DashboardPage />,
-    path: '/',
-  },
-  {
-    element: <ContactsPage />,
-    path: '/contacts',
-  },
-  {
-    element: <SegmentsPage />,
-    path: '/segments',
+    children: [
+      {
+        element: <DashboardPage />,
+        path: '/',
+      },
+      {
+        element: <ContactsPage />,
+        path: 'contacts',
+      },
+      {
+        element: <SegmentsPage />,
+        path: 'segments',
+      },
+    ],
+    element: <App />,
   },
   {
     element: <NotFoundPage />,

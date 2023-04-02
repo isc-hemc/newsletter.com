@@ -1,4 +1,5 @@
 {
+  "actions.add-one": "Add new contact",
   "helmet": "Newsletter: Contacts",
   "heading": "Contacts",
   "search-by.email": "Search by email...",

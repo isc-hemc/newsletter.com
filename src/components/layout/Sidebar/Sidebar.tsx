@@ -21,7 +21,7 @@ const BACKGROUND_CLASS = css`
 const Aside = clomp.aside`
   fixed
   top-0
-  z-50
+  z-10
   flex
   h-full
   flex-col

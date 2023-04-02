@@ -1,4 +1,5 @@
 {
+  "actions.add-one": "Añadir nuevo contacto",
   "helmet": "Newsletter: Contactos",
   "heading": "Contactos",
   "search-by.email": "Buscar por correo electrónico...",

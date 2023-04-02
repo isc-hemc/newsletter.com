@@ -41,7 +41,7 @@ export interface IInputProps
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (v: any) => void;
   /**
-   * Input size, it will adjust the label font size if the input has one.
+   * Input size, available values are: `xs`, `sm`, `md`, `lg` and `xl`.
    */
   size?: keyof typeof InputSize;
 }

@@ -28,12 +28,12 @@ export const router = createBrowserRouter([
         element: <SegmentsPage />,
         path: 'segments',
       },
+      {
+        element: <NotFoundPage />,
+        path: '*',
+      },
     ],
     element: <App />,
-  },
-  {
-    element: <NotFoundPage />,
-    path: '*',
   },
 ]);
 

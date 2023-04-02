@@ -1,4 +1,7 @@
 {
+  "sidebar.contacts": "Contacts",
+  "sidebar.dashboard": "Dashboard",
   "sidebar.headline": "newsletter",
+  "sidebar.segments": "Segments",
   "version": "v{{value}}"
 }

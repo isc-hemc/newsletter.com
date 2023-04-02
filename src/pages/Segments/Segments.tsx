@@ -12,7 +12,7 @@ export const Segments = (): JSX.Element => {
       </Helmet>
 
       <H1 className="mb-2">{t('heading')}</H1>
-      <H2 className="mb-12">{t('subheading')}</H2>
+      <H2 className="mb-14">{t('subheading')}</H2>
     </>
   );
 };

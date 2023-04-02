@@ -44,9 +44,13 @@ export const Navigation: React.FC<INavigationProps> = ({
   const isSelected = useMemo(() => location?.pathname === to, [location, to]);
 
   return (
-    <Box className={cx({ '!border-[#384967]': isSelected })} {...rest}>
+    <Box className={cx({ '!border-primary-500': isSelected })} {...rest}>
       <Icon />
-      <p className={cx('flex-1 text-sm', { 'font-bold': isSelected })}>
+      <p
+        className={cx('flex-1 text-sm text-primary-500', {
+          'font-bold': isSelected,
+        })}
+      >
         {label}
       </p>
     </Box>

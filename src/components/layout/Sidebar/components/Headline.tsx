@@ -19,6 +19,7 @@ const Text = clomp.p`
   text-center
   font-medium
   uppercase
+  text-primary-500
   tracking-widest
 `;
 
@@ -30,7 +31,7 @@ export const Headline: React.FC<IHeadlineProps> = (props): JSX.Element => {
   return (
     <Box {...props}>
       <Image alt="sidebar-avatar" height={48} src={Logo} width={180} />
-      <Text className="text-[#384967]">{t('sidebar.headline')}</Text>
+      <Text>{t('sidebar.headline')}</Text>
     </Box>
   );
 };

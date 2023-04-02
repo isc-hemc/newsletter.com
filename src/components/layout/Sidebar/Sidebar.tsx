@@ -61,7 +61,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({
         ))}
       </ul>
 
-      <p className="py-4 text-center text-xs font-bold text-[#384967]">
+      <p className="py-4 text-center text-xs font-bold text-primary-500">
         {t('version', { value: packageJSON?.version })}
       </p>
     </Aside>

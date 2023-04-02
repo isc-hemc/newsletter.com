@@ -8,7 +8,7 @@ import { IPropsOf } from 'types.d';
 const Box = clomp.div`
   flex
   items-center
-  gap-2
+  gap-4
   border-l-4
   border-transparent
   px-6
@@ -45,7 +45,7 @@ export const Navigation: React.FC<INavigationProps> = ({
 
   return (
     <Box className={cx({ '!border-primary-500': isSelected })} {...rest}>
-      <Icon />
+      <Icon size={22} />
       <p
         className={cx('flex-1 text-sm text-primary-500', {
           'font-bold': isSelected,

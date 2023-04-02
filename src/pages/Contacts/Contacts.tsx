@@ -1,15 +1,25 @@
 import { EmptySearch } from 'components/elements';
 import { Input } from 'components/inputs';
-import { Modal } from 'components/layout';
 import { H1, H2 } from 'components/typography';
 import { useToggle } from 'hooks';
+import { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+
+import {
+  SingleContactForm,
+  SingleContactFormValues,
+} from './components/SingleContactForm';
 
 export const Contacts = (): JSX.Element => {
   const [isOpen, toggle] = useToggle();
 
   const { t } = useTranslation('page:contacts');
+
+  const handleOnSubmit = useCallback(async (v: SingleContactFormValues) => {
+    // eslint-disable-next-line no-console
+    console.info(v);
+  }, []);
 
   return (
     <>
@@ -30,18 +40,13 @@ export const Contacts = (): JSX.Element => {
 
       <EmptySearch />
 
-      <Modal isCentered isOpen={isOpen} onClose={toggle} size="lg">
-        <div className="px-6 py-4">
-          <H1 className="!text-2xl">{t('actions.add-one')}</H1>
-        </div>
-
-        <div className="h-48 border-y-2 border-gray-200 bg-[#F6F8FB] px-6 py-4" />
-
-        <div className="flex items-center justify-between px-6 py-4">
-          <button type="button">Cancel</button>
-          <button type="button">Submit</button>
-        </div>
-      </Modal>
+      <SingleContactForm
+        isCentered
+        isOpen={isOpen}
+        onClose={toggle}
+        onSubmit={handleOnSubmit}
+        size="lg"
+      />
     </>
   );
 };

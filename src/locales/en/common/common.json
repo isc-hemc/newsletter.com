@@ -1,8 +1,10 @@
 {
+  "calcel": "Cancel",
   "empty-search": "No results found for your search.",
   "sidebar.contacts": "Contacts",
   "sidebar.dashboard": "Dashboard",
   "sidebar.headline": "newsletter",
   "sidebar.segments": "Segments",
+  "submit": "Submit",
   "version": "v{{value}}"
 }

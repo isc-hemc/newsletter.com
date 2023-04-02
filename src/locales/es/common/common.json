@@ -1,8 +1,10 @@
 {
+  "cancel": "Cancelar",
   "empty-search": "No se han encontrado resultados para tu búsqueda.",
   "sidebar.contacts": "Contactos",
   "sidebar.dashboard": "Dashboard",
   "sidebar.headline": "newsletter",
   "sidebar.segments": "Segmentos",
+  "submit": "Enviar",
   "version": "v{{value}}"
 }

@@ -1,7 +1,10 @@
 {
   "actions.add-one": "Añadir nuevo contacto",
+  "email": "Correo electrónico",
   "helmet": "Newsletter: Contactos",
   "heading": "Contactos",
+  "name": "Nombre(s)",
+  "last-name": "Apellidos",
   "search-by.email": "Buscar por correo electrónico...",
   "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }

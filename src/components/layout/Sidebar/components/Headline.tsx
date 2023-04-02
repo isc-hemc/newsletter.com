@@ -19,7 +19,7 @@ const Text = clomp.p`
   text-center
   font-medium
   uppercase
-  tracking-wider
+  tracking-widest
 `;
 
 export type IHeadlineProps = IPropsOf<'div'>;

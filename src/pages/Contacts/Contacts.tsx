@@ -16,9 +16,9 @@ export const Contacts = (): JSX.Element => {
       <H1 className="mb-2">{t('heading')}</H1>
       <H2 className="mb-14">{t('subheading')}</H2>
 
-      <Input className="md:!w-[320px]" placeholder={t('search-by.email')} />
+      <Input className="md:w-[320px]" placeholder={t('search-by.email')} />
 
-      <EmptySearch color="#384967" height={200} width={268} />
+      <EmptySearch />
     </>
   );
 };

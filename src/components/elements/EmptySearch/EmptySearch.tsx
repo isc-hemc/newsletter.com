@@ -1,8 +1,7 @@
 import { clomp } from 'clomp';
 import { useTranslation } from 'react-i18next';
+import { MdOutlineSearchOff } from 'react-icons/md';
 import { IPropsOf } from 'types.d';
-
-import { Icon, IIconProps } from './components/Icon';
 
 const Box = clomp.div`
   flex
@@ -20,17 +19,16 @@ const Text = clomp.p`
   text-primary-500
 `;
 
-export type IEmptySearchProps = IPropsOf<'div'> & IIconProps;
+export type IEmptySearchProps = IPropsOf<'div'>;
 
-export const EmptySearch: React.FC<IEmptySearchProps> = ({
-  className,
-  ...svgProps
-}): JSX.Element => {
+export const EmptySearch: React.FC<IEmptySearchProps> = (
+  props,
+): JSX.Element => {
   const { t } = useTranslation('common');
 
   return (
-    <Box className={className}>
-      <Icon {...svgProps} />
+    <Box {...props}>
+      <MdOutlineSearchOff color="#FE507C" size={128} />
       <Text>{t('empty-search')}</Text>
     </Box>
   );

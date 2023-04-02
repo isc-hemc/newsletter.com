@@ -1,11 +1,16 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
-export const Dashboard = (): JSX.Element => (
-  <>
-    <Helmet>
-      <title>Newsletter | Dashboard</title>
-    </Helmet>
+export const Dashboard = (): JSX.Element => {
+  const { t } = useTranslation('page:dashboard');
 
-    <h1>Dashboard</h1>
-  </>
-);
+  return (
+    <>
+      <Helmet>
+        <title>{t('helmet')}</title>
+      </Helmet>
+
+      <h1>Dashboard</h1>
+    </>
+  );
+};

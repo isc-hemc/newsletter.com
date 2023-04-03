@@ -10,6 +10,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { I18nextProvider } from 'react-i18next';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import reportWebVitals from 'reportWebVitals';
 
@@ -37,15 +38,25 @@ export const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(
+const QUERY_CLIENT = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+const MOUNT_NODE = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-root.render(
+MOUNT_NODE.render(
   <StrictMode>
     <I18nextProvider i18n={i18n} />
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={QUERY_CLIENT}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </HelmetProvider>
   </StrictMode>,
 );

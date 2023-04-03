@@ -33,13 +33,13 @@ export interface IResourcesObject<T> {
    *
    * @returns {Promise<AxiosResponse<unknown>>}
    */
-  delete?: (id: string) => Promise<AxiosResponse<unknown>>;
+  delete: (id: string) => Promise<AxiosResponse<unknown>>;
   /**
    * Makes a HTTP GET all request for the given resource.
    *
    * @returns {Promise<AxiosResponse<IFetchResponse<T>>>}
    */
-  fetch?: () => Promise<AxiosResponse<IFetchResponse<T>>>;
+  fetch: () => Promise<AxiosResponse<IFetchResponse<T>>>;
   /**
    * Makes a HTTP PATCH request for the given resource.
    * @params {string} id - resource unique identifier.
@@ -47,12 +47,12 @@ export interface IResourcesObject<T> {
    *
    * @returns {Promise<AxiosResponse<T>>}
    */
-  patch?: (id: string, p: Partial<T>) => Promise<AxiosResponse<T>>;
+  patch: (id: string, p: Partial<T>) => Promise<AxiosResponse<T>>;
   /**
    * Makes a HTTP POST request for the given resource.
    * @params {Partial<T>} p - resource payload.
    *
    * @returns {Promise<AxiosResponse<T>>}
    */
-  post?: (p: Partial<T>) => Promise<AxiosResponse<T>>;
+  post: (p: Partial<T>) => Promise<AxiosResponse<T>>;
 }

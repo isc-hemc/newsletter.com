@@ -1,10 +1,12 @@
 import { EmptySearch } from 'components/elements';
 import { Input } from 'components/inputs';
 import { H1, H2 } from 'components/typography';
-import { useToggle } from 'hooks';
+import { useFetch, useToggle } from 'hooks';
+import fp from 'lodash/fp';
 import { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { ContactResources, IContactResource } from 'services/resources';
 
 import {
   SingleContactForm,
@@ -13,6 +15,8 @@ import {
 
 export const Contacts = (): JSX.Element => {
   const [isOpen, toggle] = useToggle();
+
+  const { data: contacts } = useFetch<IContactResource>(ContactResources);
 
   const { t } = useTranslation('page:contacts');
 
@@ -38,7 +42,13 @@ export const Contacts = (): JSX.Element => {
         </button>
       </div>
 
-      <EmptySearch />
+      {fp.isEmpty(contacts?.results) ? (
+        <EmptySearch />
+      ) : (
+        <div className="">
+          <pre>{JSON.stringify(contacts?.results, null, 2)}</pre>
+        </div>
+      )}
 
       <SingleContactForm
         isCentered

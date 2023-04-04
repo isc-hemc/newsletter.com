@@ -5,7 +5,6 @@ import { BaseTable as T } from 'components/modules';
 import { H1, H2 } from 'components/typography';
 import { useFetch, usePost, useToggle } from 'hooks';
 import { i18n } from 'locales';
-import fp from 'lodash/fp';
 import { nanoid } from 'nanoid';
 import { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';

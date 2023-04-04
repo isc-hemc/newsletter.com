@@ -5,7 +5,7 @@ export type IThProps = IPropsOf<'th'>;
 
 export const Th = clomp.th`
   bg-gray-100
-  font-medium
+  font-semibold
   py-3
   px-6
   text-primary-500

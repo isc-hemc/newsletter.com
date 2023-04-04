@@ -6,6 +6,7 @@ export type ITdProps = IPropsOf<'td'>;
 export const Td = clomp.td`
   px-6
   py-4
+  text-xs
   whitespace-nowrap
 
   first-of-type:rounded-l-xl

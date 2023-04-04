@@ -19,14 +19,15 @@ const BACKGROUND_CLASS = css`
 `;
 
 const Aside = clomp.aside`
-  fixed
   top-0
   z-10
-  flex
+  hidden
   h-full
   flex-col
   overflow-y-scroll
   shadow-md
+
+  lg:flex
   lg:sticky
 `;
 

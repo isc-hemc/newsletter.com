@@ -47,12 +47,15 @@ export const Contacts = (): JSX.Element => {
       </Helmet>
 
       <H1 className="mb-2">{t('heading')}</H1>
-      <H2 className="mb-14">{t('subheading')}</H2>
+      <H2 className="mb-4 lg:mb-8">{t('subheading')}</H2>
 
-      <div className="mb-4 flex justify-between">
-        <Input className="md:w-[320px]" placeholder={t('search-by.email')} />
+      <div className="mb-4 flex flex-col-reverse justify-between gap-4 lg:flex-row">
+        <Input
+          className="lg:max-w-[320px]"
+          placeholder={t('search-by.email')}
+        />
         <Button
-          className="h-full px-4 text-xs"
+          className="h-10 self-end px-4 text-xs"
           colorScheme="secondary"
           onClick={() => toggle()}
           rightIcon={<FaPlus size={10} />}

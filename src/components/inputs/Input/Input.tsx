@@ -10,11 +10,11 @@ import { IPropsOf } from 'types.d';
  * @enum {string}
  */
 export enum InputSize {
-  xs = 'h-[32px] text-xs',
-  sm = 'h-[40px] text-sm',
-  md = 'h-[48px] text-md',
-  lg = 'h-[56px] text-lg',
-  xl = 'h-[64px] text-xl',
+  xs = 'h-8 text-xs',
+  sm = 'h-10 text-sm',
+  md = 'h-12 text-md',
+  lg = 'h-14 text-lg',
+  xl = 'h-16 text-xl',
 }
 
 export interface IInputProps

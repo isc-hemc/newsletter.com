@@ -5,6 +5,7 @@ import { IModalProps, Modal } from 'components/layout';
 import { H1 } from 'components/typography';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { IContactPayload } from 'services/resources';
 import * as Yup from 'yup';
 
 const DEFAULT_VALUES = { email: '', last_name: '', name: '' };
@@ -17,34 +18,24 @@ const validationSchema = Yup.object().shape({
   name: Yup.string().required('form.required'),
 });
 
-export interface SingleContactFormValues {
-  /**
-   * Contact email.
-   */
-  email: string;
-  /**
-   * Contact last name.
-   */
-  last_name: string;
-  /**
-   * Contact name.
-   */
-  name: string;
-}
-
 export interface ISingleContactFormProps extends IModalProps {
+  /**
+   * If `true`, it means that the user has submit the form data.
+   */
+  isLoading?: boolean;
   /**
    * Action handler triggered on submit actions.
    */
-  onSubmit: (v: SingleContactFormValues) => Promise<void>;
+  onSubmit: (v: IContactPayload) => Promise<void>;
 }
 
 export const SingleContactForm: React.FC<ISingleContactFormProps> = ({
+  isLoading = false,
   onClose,
   onSubmit,
   ...rest
 }): JSX.Element => {
-  const methods = useForm<SingleContactFormValues>({
+  const methods = useForm<IContactPayload>({
     defaultValues: DEFAULT_VALUES,
     mode: 'all',
     resolver: yupResolver(validationSchema),
@@ -103,6 +94,7 @@ export const SingleContactForm: React.FC<ISingleContactFormProps> = ({
         <Button
           className="px-6 py-2 text-sm"
           colorScheme="tertiary"
+          disabled={isLoading || !methods?.formState?.isValid}
           form="single-contact-form"
           type="submit"
         >

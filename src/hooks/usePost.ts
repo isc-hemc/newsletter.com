@@ -25,7 +25,13 @@ export const usePost = <T>(r: IResourcesObject<T>): IMutation<T> => {
     console.error(error?.response?.status);
   }, []);
 
-  const mutation = useMutation(['post', pathname], fn, { onError });
+  const onSuccess = useCallback((data: AxiosResponse<T>) => {
+    // TODO: handle success on [POST] requests.
+    // eslint-disable-next-line no-console
+    console.info(data);
+  }, []);
+
+  const mutation = useMutation(['post', pathname], fn, { onError, onSuccess });
 
   return mutation;
 };

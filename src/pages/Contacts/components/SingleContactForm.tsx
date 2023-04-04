@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from 'components/elements';
 import { InputField } from 'components/forms';
 import { IModalProps, Modal } from 'components/layout';
 import { H1 } from 'components/typography';
@@ -91,12 +92,22 @@ export const SingleContactForm: React.FC<ISingleContactFormProps> = ({
       </div>
 
       <div className="flex items-center justify-between px-6 py-4">
-        <button onClick={() => onClose()} type="button">
-          {t('cancel', { ns: 'common' })}
-        </button>
-        <button form="single-contact-form" type="submit">
-          {t('submit', { ns: 'common' })}
-        </button>
+        <Button
+          className="px-6 py-2 text-sm"
+          colorScheme="gray"
+          onClick={() => onClose()}
+        >
+          {t('button.cancel', { ns: 'common' })}
+        </Button>
+
+        <Button
+          className="px-6 py-2 text-sm"
+          colorScheme="tertiary"
+          form="single-contact-form"
+          type="submit"
+        >
+          {t('button.save', { ns: 'common' })}
+        </Button>
       </div>
     </Modal>
   );

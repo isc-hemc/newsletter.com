@@ -1,5 +1,6 @@
 {
   "actions.add-one": "Add new contact",
+  "button.create": "Create contact",
   "created-at": "Created date",
   "email": "Email",
   "helmet": "Newsletter: Contacts",

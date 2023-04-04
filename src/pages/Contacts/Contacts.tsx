@@ -1,4 +1,4 @@
-import { EmptySearch } from 'components/elements';
+import { Button, EmptySearch } from 'components/elements';
 import { Input } from 'components/inputs';
 import { Table } from 'components/layout';
 import { BaseTable as T } from 'components/modules';
@@ -10,6 +10,7 @@ import { nanoid } from 'nanoid';
 import { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { FaPlus } from 'react-icons/fa';
 import { ContactResources, IContactResource } from 'services/resources';
 import { formatDate } from 'utils';
 
@@ -50,10 +51,15 @@ export const Contacts = (): JSX.Element => {
 
       <div className="mb-4 flex justify-between">
         <Input className="md:w-[320px]" placeholder={t('search-by.email')} />
-
-        <button onClick={() => toggle()} type="button">
-          +
-        </button>
+        <Button
+          className="h-full px-4 text-xs"
+          colorScheme="secondary"
+          onClick={() => toggle()}
+          rightIcon={<FaPlus size={10} />}
+          variant="outline"
+        >
+          {t('button.create')}
+        </Button>
       </div>
 
       {fp.isEmpty(contacts?.results) ? (

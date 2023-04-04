@@ -8,9 +8,7 @@ import { IThProps, Th } from './components/Th';
 import { ITheadProps, Thead } from './components/Thead';
 import { ITrProps, Tr } from './components/Tr';
 
-export type ITableProps = IPropsOf<'table'>;
-
-export interface ITableCompoundProps {
+export interface IBaseTableCompoundProps {
   /**
    * Table default container.
    */
@@ -37,25 +35,27 @@ export interface ITableCompoundProps {
   Tr: React.FC<ITrProps>;
 }
 
-export const T = clomp.table`
+export type IBaseTableProps = IPropsOf<'table'>;
+
+const Table = clomp.table`
   divide-gray-200
   divide-y
   min-w-full
 `;
 
-export const Table: React.FC<ITableProps> & ITableCompoundProps = ({
+export const BaseTable: React.FC<IBaseTableProps> & IBaseTableCompoundProps = ({
   children,
   ...rest
-}): JSX.Element => <T {...rest}>{children}</T>;
+}): JSX.Element => <Table {...rest}>{children}</Table>;
 
-Table.Container = Container;
+BaseTable.Container = Container;
 
-Table.Thead = Thead;
+BaseTable.Thead = Thead;
 
-Table.Tbody = Tbody;
+BaseTable.Tbody = Tbody;
 
-Table.Td = Td;
+BaseTable.Td = Td;
 
-Table.Tr = Tr;
+BaseTable.Tr = Tr;
 
-Table.Th = Th;
+BaseTable.Th = Th;

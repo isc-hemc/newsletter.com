@@ -5,7 +5,7 @@ import { __DEV__ } from 'utils';
 
 const Box = clomp.div`
   border-b-2
-  border-gray-200
+  border-gray-50
   overflow-scroll
   rounded-b-xl
 `;

@@ -6,5 +6,5 @@ export type ITrProps = IPropsOf<'tr'>;
 export const Tr = clomp.tr`
   border-none
 
-  even:bg-gray-25
+  even:bg-gray-50
 `;

@@ -1,4 +1,5 @@
 import './assets/css/index.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { App } from 'App';
 import { i18n } from 'locales';

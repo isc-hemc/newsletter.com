@@ -45,7 +45,7 @@ const Node = (): JSX.Element => {
 
   return (
     <section
-      className={cx('mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-8', {
+      className={cx('mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-8', {
         'pb-20': !isInitialOrFinalNode,
       })}
     >

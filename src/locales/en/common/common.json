@@ -1,7 +1,9 @@
 {
+  "button.browse": "Browse file",
   "button.cancel": "Cancel",
   "button.create-newsletter": "Create newsletter",
   "button.save": "Save",
+  "dnd": "Choose a file or drag it here.",
   "empty-search": "No results found for your search.",
   "sidebar.contacts": "Contacts",
   "sidebar.analytics": "Analytics",

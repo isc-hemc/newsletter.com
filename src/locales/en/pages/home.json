@@ -10,6 +10,7 @@
   "screen.idle.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "screen.newsletter.title": "mail configuration",
   "screen.newsletter.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.recipients.terms": "I agree that all contacts in this import expect to hear from my organization. I can confirm that this listing was not purchased, rented, aggregated, or provided by any third party.",
   "screen.recipients.title": "recipients",
   "screen.recipients.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "screen.results.title": "results",

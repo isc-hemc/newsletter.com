@@ -37,7 +37,7 @@ export const Header: React.FC<IHeaderProps> = ({
         <Button
           className="self-center text-sm"
           colorScheme="secondary"
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/analytics')}
           variant="link"
         >
           {t('button.dashboard')}

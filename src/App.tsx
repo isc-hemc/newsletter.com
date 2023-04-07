@@ -11,7 +11,7 @@ const NAVIGATION_ITEMS = [
   {
     icon: FaChartBar,
     label: i18n.t('sidebar.dashboard', { ns: 'common' }),
-    to: '/',
+    to: '/dashboard',
   },
   {
     icon: RiContactsBook2Fill,

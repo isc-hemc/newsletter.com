@@ -5,6 +5,7 @@ import { App } from 'App';
 import { i18n } from 'locales';
 import { ContactsPage } from 'pages/Contacts';
 import { DashboardPage } from 'pages/Dashboard';
+import { HomePage } from 'pages/Home';
 import { NotFoundPage } from 'pages/NotFound';
 import { SegmentsPage } from 'pages/Segments';
 import { StrictMode } from 'react';
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <DashboardPage />,
-        path: '/',
+        path: '/dashboard',
       },
       {
         element: <ContactsPage />,
@@ -30,12 +31,16 @@ export const router = createBrowserRouter([
         element: <SegmentsPage />,
         path: 'segments',
       },
-      {
-        element: <NotFoundPage />,
-        path: '*',
-      },
     ],
     element: <App />,
+  },
+  {
+    element: <HomePage />,
+    path: '/',
+  },
+  {
+    element: <NotFoundPage />,
+    path: '*',
   },
 ]);
 

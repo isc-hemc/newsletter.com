@@ -12,8 +12,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 const NAVIGATION_ITEMS = [
   {
     icon: FaChartBar,
-    label: i18n.t('sidebar.dashboard', { ns: 'common' }),
-    to: '/dashboard',
+    label: i18n.t('sidebar.analytics', { ns: 'common' }),
+    to: '/analytics',
   },
   {
     icon: RiContactsBook2Fill,
@@ -27,7 +27,7 @@ const NAVIGATION_ITEMS = [
   },
 ];
 
-export const App = (): JSX.Element => {
+export const Dashboard = (): JSX.Element => {
   const navigate = useNavigate();
 
   const height = use100vh();

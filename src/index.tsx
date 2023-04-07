@@ -1,10 +1,10 @@
 import './assets/css/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { App } from 'App';
+import { Dashboard } from 'Dashboard';
 import { i18n } from 'locales';
+import { AnalyticsPage } from 'pages/Analytics';
 import { ContactsPage } from 'pages/Contacts';
-import { DashboardPage } from 'pages/Dashboard';
 import { HomePage } from 'pages/Home';
 import { NotFoundPage } from 'pages/NotFound';
 import { SegmentsPage } from 'pages/Segments';
@@ -20,8 +20,8 @@ export const router = createBrowserRouter([
   {
     children: [
       {
-        element: <DashboardPage />,
-        path: '/dashboard',
+        element: <AnalyticsPage />,
+        path: '/analytics',
       },
       {
         element: <ContactsPage />,
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         path: 'segments',
       },
     ],
-    element: <App />,
+    element: <Dashboard />,
   },
   {
     element: <HomePage />,

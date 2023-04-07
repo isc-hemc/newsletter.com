@@ -4,7 +4,7 @@
   "button.save": "Save",
   "empty-search": "No results found for your search.",
   "sidebar.contacts": "Contacts",
-  "sidebar.dashboard": "Dashboard",
+  "sidebar.analytics": "Analytics",
   "sidebar.headline": "newsletter",
   "sidebar.segments": "Segments",
   "version": "v{{value}}"

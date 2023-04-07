@@ -31,7 +31,7 @@ export const Headline: React.FC<IHeadlineProps> = (props): JSX.Element => {
 
   return (
     <Box {...props}>
-      <Link to="/">
+      <Link to="/dashboard">
         <Image alt="sidebar-avatar" height={48} src={Logo} width={180} />
       </Link>
       <Text>{t('sidebar.headline')}</Text>

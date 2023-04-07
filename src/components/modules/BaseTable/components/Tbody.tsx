@@ -5,9 +5,6 @@ export type ITbodyProps = IPropsOf<'tbody'>;
 
 export const Tbody = clomp.tbody`
   bg-white
-  border-none
-  divide-gray-200
-  divide-y
   text-sm
   text-primary-500
 `;

@@ -89,7 +89,7 @@ export const Input: React.FC<IInputProps> = (props): JSX.Element => {
   const css = useMemo(
     () =>
       cx(
-        'border-2 border-gray-100 bg-white px-4 py-2 outline-none w-full focus:outline-none',
+        'border-2 border-gray-200 bg-white px-4 py-2 outline-none w-full focus:outline-none',
         { 'bg-gray-50 cursor-not-allowed opacity-70': isDisabled },
         { 'rounded-full': isRounded },
         InputSize[size],

@@ -8,7 +8,4 @@ export const Td = clomp.td`
   py-4
   text-xs
   whitespace-nowrap
-
-  first-of-type:rounded-l-xl
-  last-of-type:rounded-r-xl
 `;

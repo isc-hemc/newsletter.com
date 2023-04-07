@@ -34,7 +34,7 @@ export const Table: React.FC<ITableProps> = ({
   return (
     <T.Container>
       <T>
-        <T.Thead>
+        <T.Thead className="border-b-2 border-gray-200">
           <T.Tr>
             {headers?.map((header) => (
               <T.Th key={header} className="whitespace-nowrap" scope="col">

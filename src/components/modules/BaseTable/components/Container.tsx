@@ -4,10 +4,10 @@ import { IPropsOf } from 'types.d';
 import { __DEV__ } from 'utils';
 
 const Box = clomp.div`
-  border-b-2
-  border-gray-50
+  border-2
+  border-gray-200
   overflow-scroll
-  rounded-b-xl
+  rounded-xl
 `;
 
 export type IContainerProps = IPropsOf<'div'>;

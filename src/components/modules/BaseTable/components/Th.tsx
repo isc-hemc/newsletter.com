@@ -12,7 +12,4 @@ export const Th = clomp.th`
   text-left
   text-xs
   tracking-wider
-
-  first-of-type:rounded-l-xl
-  last-of-type:rounded-r-xl
 `;

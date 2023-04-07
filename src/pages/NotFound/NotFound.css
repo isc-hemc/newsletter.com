@@ -1,5 +1,6 @@
 .container {
-  height: calc(100vh - 4rem);
+  height: 100vh;
+  margin: 0 auto;
   position: relative;
   width: 100%;
 }
@@ -8,9 +9,12 @@
   color: #89949b;
   font-size: 2.4rem;
   font-weight: medium;
-  left: 10%;
+  left: 50%;
   position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
   top: 10%;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -18,7 +22,16 @@
     color: #89949b;
     font-size: 1.8rem;
     font-weight: medium;
-    left: 10%;
+    position: absolute;
+    top: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  .headline {
+    color: #89949b;
+    font-size: 1.2rem;
+    font-weight: medium;
     position: absolute;
     top: 25%;
   }

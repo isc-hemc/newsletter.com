@@ -2,5 +2,20 @@
   "button.back": "Back",
   "button.dashboard": "Dashboard",
   "button.next": "Next",
-  "helmet": "Newsletter"
+  "button.start": "Start",
+  "helmet": "Newsletter",
+  "screen.builder.title": "quick start",
+  "screen.builder.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.idle.title": "create newsletter",
+  "screen.idle.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.newsletter.title": "mail configuration",
+  "screen.newsletter.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.recipients.title": "recipients",
+  "screen.recipients.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.results.title": "results",
+  "screen.results.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.review.title": "summary",
+  "screen.review.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.template.title": "create template",
+  "screen.template.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }

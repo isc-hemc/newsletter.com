@@ -2,5 +2,20 @@
   "button.back": "Regresar",
   "button.dashboard": "Dashboard",
   "button.next": "Siguiente",
-  "helmet": "Newsletter"
+  "button.start": "Inicio",
+  "helmet": "Newsletter",
+  "screen.builder.title": "inicio rapido",
+  "screen.builder.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.idle.title": "crear newsletter",
+  "screen.idle.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.newsletter.title": "configuración del correo",
+  "screen.newsletter.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.recipients.title": "destinatarios",
+  "screen.recipients.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.results.title": "resultados",
+  "screen.results.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.review.title": "resumen",
+  "screen.review.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "screen.template.title": "crea tu plantilla",
+  "screen.template.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }

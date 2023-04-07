@@ -74,7 +74,9 @@ export const Home = (): JSX.Element => {
       </Helmet>
 
       <NewsletterProvider>
-        <main className={cx('relative flex flex-col', HEIGHT_CLASS)}>
+        <main
+          className={cx('relative flex flex-col bg-[#F6F8FB]', HEIGHT_CLASS)}
+        >
           <Header />
 
           <Node />

@@ -40,7 +40,7 @@ export const App = (): JSX.Element => {
     <main className={cx('relative flex overflow-hidden', HEIGHT_CLASS)}>
       <Sidebar navigation={NAVIGATION_ITEMS} />
 
-      <section className="flex flex-1 flex-col overflow-hidden px-4 py-8 lg:px-12 lg:py-14">
+      <section className="flex flex-1 flex-col overflow-hidden bg-[#F6F8FB] px-4 py-8 lg:px-12 lg:py-14">
         <Outlet />
       </section>
     </main>

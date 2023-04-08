@@ -1,13 +1,26 @@
-import { FileInput, Input } from 'components/inputs';
+import { FileField, InputField } from 'components/forms';
 import { H1, H2 } from 'components/typography';
-import { useState } from 'react';
+import { useCallback } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { RiContactsBook2Line } from 'react-icons/ri';
 
+const DEFAULT_VALUES = { csv: undefined, name: '' };
+
+type IBulkPayload = { name: string; csv?: File };
+
 export const RecipientsScreen = (): JSX.Element => {
-  const [file, setFile] = useState<File>();
+  const methods = useForm<IBulkPayload>({
+    defaultValues: DEFAULT_VALUES,
+    mode: 'all',
+  });
 
   const { t } = useTranslation('page:home');
+
+  const handleOnSubmit = useCallback((v: IBulkPayload) => {
+    // eslint-disable-next-line no-console
+    console.log(v);
+  }, []);
 
   return (
     <>
@@ -18,11 +31,26 @@ export const RecipientsScreen = (): JSX.Element => {
       <H2 className="mb-8 text-center">{t('screen.recipients.subtitle')}</H2>
 
       <div className="flex gap-8">
-        <form className="flex flex-[2] flex-col gap-4">
-          <Input placeholder="Nombre de la importación..." />
+        <FormProvider {...methods}>
+          <form
+            className="flex flex-[2] flex-col gap-4"
+            onSubmit={methods.handleSubmit(handleOnSubmit)}
+          >
+            <InputField
+              label={t('form.bulk.name.label', { ns: 'common' })}
+              name="name"
+              size="md"
+            />
 
-          <FileInput accept=".csv" icon="csv" onChange={setFile} value={file} />
-        </form>
+            <FileField
+              accept=".csv"
+              helper={t('form.bulk.csv.helper', { ns: 'common' })}
+              icon="csv"
+              label={t('form.bulk.csv.label', { ns: 'common' })}
+              name="csv"
+            />
+          </form>
+        </FormProvider>
 
         <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:items-center lg:justify-center lg:gap-4">
           <RiContactsBook2Line color="#00C7B1" size={180} />

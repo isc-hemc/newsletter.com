@@ -27,11 +27,12 @@ export const TemplateScreen = (): JSX.Element => {
       <H2 className="mb-8 text-center">{t('screen.template.subtitle')}</H2>
 
       <Input
-        className="mb-8 w-full self-center lg:max-w-md"
+        className="mb-4 w-full self-center lg:max-w-md"
         placeholder="Nombre..."
+        size="md"
       />
 
-      <div className="overflow-x-scroll">
+      <div className="overflow-x-scroll rounded-xl border-2 border-gray-200 bg-white">
         <EmailEditor ref={ref} />
       </div>
     </>

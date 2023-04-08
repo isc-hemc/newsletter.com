@@ -3,7 +3,6 @@ import { H1, H2 } from 'components/typography';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { RiContactsBook2Line } from 'react-icons/ri';
 
 const DEFAULT_VALUES = { csv: undefined, name: '' };
 

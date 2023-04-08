@@ -24,7 +24,7 @@ export const Machine = createMachine<IMachineContext, MachineEvents>({
           target: MachineNodes.IDLE,
         },
         NEXT: {
-          target: MachineNodes.REVIEW,
+          target: MachineNodes.RESULT,
         },
       },
     },
@@ -52,16 +52,6 @@ export const Machine = createMachine<IMachineContext, MachineEvents>({
       on: {
         BACK: {
           target: MachineNodes.RECIPIENTS,
-        },
-        NEXT: {
-          target: MachineNodes.REVIEW,
-        },
-      },
-    },
-    [MachineNodes.REVIEW]: {
-      on: {
-        BACK: {
-          target: MachineNodes.NEWSLETTER,
         },
         NEXT: {
           target: MachineNodes.RESULT,

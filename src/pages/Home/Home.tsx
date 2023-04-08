@@ -15,7 +15,6 @@ import { IdleScreen } from './screens/Idle';
 import { NewsletterScreen } from './screens/Newsletter';
 import { RecipientsScreen } from './screens/Recipients';
 import { ResultsScreen } from './screens/Results';
-import { ReviewScreen } from './screens/Review';
 import { TemplateScreen } from './screens/Template';
 
 const SCREEN_NODES = {
@@ -24,7 +23,6 @@ const SCREEN_NODES = {
   [MachineNodes.TEMPLATE]: TemplateScreen,
   [MachineNodes.RECIPIENTS]: RecipientsScreen,
   [MachineNodes.NEWSLETTER]: NewsletterScreen,
-  [MachineNodes.REVIEW]: ReviewScreen,
   [MachineNodes.RESULT]: ResultsScreen,
 };
 

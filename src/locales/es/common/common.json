@@ -3,6 +3,7 @@
   "button.cancel": "Cancelar",
   "button.create-newsletter": "Crear newsletter",
   "button.save": "Guardar",
+  "button.start": "Comenzar",
   "dnd": "Busca un archivo o arrastralo aquí.",
   "empty-search": "No se han encontrado resultados para tu búsqueda.",
   "form.bulk.csv.helper": "Este campo únicamente acepta archivos CSV.",

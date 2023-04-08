@@ -30,35 +30,26 @@ export const RecipientsScreen = (): JSX.Element => {
 
       <H2 className="mb-8 text-center">{t('screen.recipients.subtitle')}</H2>
 
-      <div className="flex gap-8">
-        <FormProvider {...methods}>
-          <form
-            className="flex flex-[2] flex-col gap-4"
-            onSubmit={methods.handleSubmit(handleOnSubmit)}
-          >
-            <InputField
-              label={t('form.bulk.name.label', { ns: 'common' })}
-              name="name"
-              size="md"
-            />
+      <FormProvider {...methods}>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={methods.handleSubmit(handleOnSubmit)}
+        >
+          <InputField
+            label={t('form.bulk.name.label', { ns: 'common' })}
+            name="name"
+            size="md"
+          />
 
-            <FileField
-              accept=".csv"
-              helper={t('form.bulk.csv.helper', { ns: 'common' })}
-              icon="csv"
-              label={t('form.bulk.csv.label', { ns: 'common' })}
-              name="csv"
-            />
-          </form>
-        </FormProvider>
-
-        <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:items-center lg:justify-center lg:gap-4">
-          <RiContactsBook2Line color="#00C7B1" size={180} />
-          <p className="text-justify text-xs font-medium text-primary-500">
-            {t('screen.recipients.terms')}
-          </p>
-        </div>
-      </div>
+          <FileField
+            accept=".csv"
+            helper={t('form.bulk.csv.helper', { ns: 'common' })}
+            icon="csv"
+            label={t('form.bulk.csv.label', { ns: 'common' })}
+            name="csv"
+          />
+        </form>
+      </FormProvider>
     </>
   );
 };

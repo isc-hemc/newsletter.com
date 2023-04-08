@@ -41,7 +41,7 @@ export const Footer: React.FC<IFooterProps> = ({
 
   return (
     <F className={cx('min-h-[4rem]', className)} {...rest}>
-      <div className="flex max-w-3xl flex-1 justify-between gap-2">
+      <div className="flex max-w-4xl flex-1 justify-between gap-2">
         <Button
           className="px-6 py-2 text-sm"
           colorScheme="gray"

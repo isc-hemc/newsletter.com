@@ -36,6 +36,10 @@ const Node = (): JSX.Element => {
     ({ matches }) => matches(MachineNodes.IDLE) || matches(MachineNodes.RESULT),
   );
 
+  const isTemplateNode = useSelector(context, ({ matches }) =>
+    matches(MachineNodes.TEMPLATE),
+  );
+
   const [state] = useActor(context);
 
   const UI = useMemo(
@@ -45,7 +49,8 @@ const Node = (): JSX.Element => {
 
   return (
     <section
-      className={cx('mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-8', {
+      className={cx('mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-8', {
+        '!max-w-6xl': isTemplateNode,
         'pb-20': !isInitialOrFinalNode,
       })}
     >

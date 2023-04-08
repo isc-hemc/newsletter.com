@@ -34,8 +34,6 @@ export const InputField: React.FC<IInputFieldProps> = ({
   defaultValue,
   helper,
   inputClassName,
-  isDisabled = false,
-  isRequired = false,
   isRounded = true,
   label,
   labelClassName,
@@ -64,8 +62,6 @@ export const InputField: React.FC<IInputFieldProps> = ({
         className={inputClassName}
         debounceInterval={debounceInterval}
         id={name}
-        isDisabled={isDisabled}
-        isRequired={isRequired}
         isRounded={isRounded}
         placeholder={placeholder}
         size={size}

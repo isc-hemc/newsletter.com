@@ -4,6 +4,8 @@ import fp from 'lodash/fp';
 import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { IPropsOf } from 'types.d';
 
+type IInputBaseProps = Omit<IPropsOf<'input'>, 'onChange' | 'size'>;
+
 /**
  * Enum for input sizes.
  * @readonly
@@ -17,20 +19,11 @@ export enum InputSize {
   xl = 'h-16 text-xl',
 }
 
-export interface IInputProps
-  extends Omit<IPropsOf<'input'>, 'onChange' | 'size'> {
+export interface IInputProps extends IInputBaseProps {
   /**
    * Debounce interval for `onChange` function, default is `0`.
    */
   debounceInterval?: number;
-  /**
-   * If `true`, this field will be disabled, default is `false`.
-   */
-  isDisabled?: boolean;
-  /**
-   * If `true`, this field will be required by the form, default is `false`.
-   */
-  isRequired?: boolean;
   /**
    * If `true`, the input will have rounded borders, default is `true`.
    */
@@ -38,8 +31,7 @@ export interface IInputProps
   /**
    * On change event handler.
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onChange?: (v: any) => void;
+  onChange?: (v: unknown) => void;
   /**
    * Input size, available values are: `xs`, `sm`, `md`, `lg` and `xl`.
    */
@@ -51,8 +43,7 @@ export const Input: React.FC<IInputProps> = (props): JSX.Element => {
     className,
     debounceInterval = 0,
     defaultValue,
-    isDisabled = false,
-    isRequired = false,
+    disabled = false,
     isRounded = true,
     name,
     onChange,
@@ -90,22 +81,21 @@ export const Input: React.FC<IInputProps> = (props): JSX.Element => {
     () =>
       cx(
         'border-2 border-gray-200 bg-white px-4 py-2 outline-none w-full focus:outline-none',
-        { 'bg-gray-50 cursor-not-allowed opacity-70': isDisabled },
+        { 'bg-gray-50 cursor-not-allowed opacity-70': disabled },
         { 'rounded-full': isRounded },
         InputSize[size],
         className,
       ),
-    [className, isDisabled, isRounded, size],
+    [className, disabled, isRounded, size],
   );
 
   return (
     <input
       className={css}
-      disabled={isDisabled}
+      disabled={disabled}
       id={name}
       name={name}
       onChange={handleInputChange}
-      required={isRequired}
       type={type}
       value={value}
       {...rest}

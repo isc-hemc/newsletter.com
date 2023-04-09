@@ -39,7 +39,7 @@ export const NewsletterScreen = (): JSX.Element => {
           onSubmit={methods.handleSubmit(handleOnSubmit)}
         >
           <InputField
-            label={t('form.newsletter.name.label', { ns: 'common' })}
+            label={t('form.newsletter.subject.label', { ns: 'common' })}
             name="subject"
             size="md"
           />

@@ -66,7 +66,7 @@ export const Home = (): JSX.Element => {
   const HEIGHT_CLASS = useMemo(
     () =>
       css`
-        height: ${height}px;
+        min-height: ${height}px;
       `,
     [height],
   );

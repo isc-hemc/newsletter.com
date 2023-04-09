@@ -50,7 +50,9 @@ export const Card: React.FC<ICardProps> = ({
 
       <ul className="flex-1 list-disc px-8 text-xs font-medium text-primary-500">
         {benefits?.map((item) => (
-          <li key={nanoid()}>{item}</li>
+          <li key={nanoid()} className="ml-4">
+            {item}
+          </li>
         ))}
       </ul>
 

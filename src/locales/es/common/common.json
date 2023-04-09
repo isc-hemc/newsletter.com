@@ -11,7 +11,7 @@
   "form.bulk.name.label": "Nombre de la importación",
   "form.newsletter.attachment.helper": "Este campo únicamente acepta archivos PNG y PDF.",
   "form.newsletter.attachment.label": "Carga un archivo adjunto (opcional)",
-  "form.newsletter.name.label": "Asunto que aparecera en el correo",
+  "form.newsletter.subject.label": "Asunto que aparecera en el correo",
   "sidebar.contacts": "Contactos",
   "sidebar.analytics": "Analítica",
   "sidebar.headline": "newsletter",

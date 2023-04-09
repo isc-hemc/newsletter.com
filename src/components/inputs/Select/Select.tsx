@@ -110,11 +110,21 @@ export const Select: React.FC<ISelectProps> = ({
     () => ({
       control: (base: any) => ({
         ...base,
+        '&:active': {
+          ...base[':active'],
+          border: '2px solid #e5e7eb',
+        },
+        '&:hover': {
+          ...base[':hover'],
+          border: '2px solid #e5e7eb',
+        },
         background: 'white',
-        border: '2 solid #E5E7EB',
+        border: '2px solid #e5e7eb',
         borderRadius: isRounded ? 50 : 0,
+        boxShadow: 'none',
         fontSize: SelectFontSize[size],
         minHeight: SelectSize[size],
+        paddingLeft: '8px',
       }),
       menu: (base: any) => ({
         ...base,
@@ -124,11 +134,10 @@ export const Select: React.FC<ISelectProps> = ({
         ...base,
         fontSize: SelectFontSize[size],
       }),
-
-      // valueContainer: (base: any) => ({
-      //   ...base,
-      //   position: size === 'sm' ? 'static' : 'relative',
-      // }),
+      placeholder: (base: any) => ({
+        ...base,
+        color: '#9ca3af',
+      }),
     }),
     [isRounded, size],
   );

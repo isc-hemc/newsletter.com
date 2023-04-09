@@ -11,7 +11,7 @@
   "form.bulk.name.label": "Import name",
   "form.newsletter.attachment.helper": "This field only accepts PNG and PDF files.",
   "form.newsletter.attachment.label": "Upload an attachment (optional)",
-  "form.newsletter.name.label": "Mail subject",
+  "form.newsletter.subject.label": "Mail subject",
   "sidebar.contacts": "Contacts",
   "sidebar.analytics": "Analytics",
   "sidebar.headline": "newsletter",

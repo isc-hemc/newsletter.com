@@ -30,14 +30,17 @@ export const Footer: React.FC<IFooterProps> = ({
 }): JSX.Element | null => {
   const context = useContext(NewsletterContext);
 
-  const isInitialOrFinalNode = useSelector(
+  const isNotFormNode = useSelector(
     context,
-    ({ matches }) => matches(MachineNodes.IDLE) || matches(MachineNodes.RESULT),
+    ({ matches }) =>
+      matches(MachineNodes.IDLE) ||
+      matches(MachineNodes.REVIEW) ||
+      matches(MachineNodes.RESULT),
   );
 
   const { t } = useTranslation('page:home');
 
-  if (isInitialOrFinalNode) return null;
+  if (isNotFormNode) return null;
 
   return (
     <F className={cx('min-h-[4rem]', className)} {...rest}>

@@ -15,6 +15,7 @@ import { IdleScreen } from './screens/Idle';
 import { NewsletterScreen } from './screens/Newsletter';
 import { RecipientsScreen } from './screens/Recipients';
 import { ResultsScreen } from './screens/Results';
+import { ReviewScreen } from './screens/Review';
 import { TemplateScreen } from './screens/Template';
 
 const SCREEN_NODES = {
@@ -23,15 +24,19 @@ const SCREEN_NODES = {
   [MachineNodes.TEMPLATE]: TemplateScreen,
   [MachineNodes.RECIPIENTS]: RecipientsScreen,
   [MachineNodes.NEWSLETTER]: NewsletterScreen,
+  [MachineNodes.REVIEW]: ReviewScreen,
   [MachineNodes.RESULT]: ResultsScreen,
 };
 
 const Node = (): JSX.Element => {
   const context = useContext(NewsletterContext);
 
-  const isInitialOrFinalNode = useSelector(
+  const isNotFormNode = useSelector(
     context,
-    ({ matches }) => matches(MachineNodes.IDLE) || matches(MachineNodes.RESULT),
+    ({ matches }) =>
+      matches(MachineNodes.IDLE) ||
+      matches(MachineNodes.REVIEW) ||
+      matches(MachineNodes.RESULT),
   );
 
   const isTemplateNode = useSelector(context, ({ matches }) =>
@@ -48,9 +53,9 @@ const Node = (): JSX.Element => {
   return (
     <section
       className={cx('mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-8', {
-        '!max-w-3xl': isInitialOrFinalNode,
+        '!max-w-3xl': isNotFormNode,
         '!max-w-6xl': isTemplateNode,
-        'pb-20': !isInitialOrFinalNode,
+        'pb-20': !isNotFormNode,
       })}
     >
       <UI />

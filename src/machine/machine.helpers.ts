@@ -9,6 +9,7 @@ export enum MachineNodes {
   TEMPLATE = 'TEMPLATE',
   RECIPIENTS = 'RECIPIENTS',
   NEWSLETTER = 'NEWSLETTER',
+  REVIEW = 'REVIEW',
   RESULT = 'RESULT',
 }
 

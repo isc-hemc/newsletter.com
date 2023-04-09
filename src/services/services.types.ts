@@ -10,10 +10,6 @@ export interface IBaseResource {
    */
   id: number;
   /**
-   * If `true`, the registry will be active, otherwise has been soft-deleted.
-   */
-  is_active: boolean;
-  /**
    * Updated date in a fixed-precision format.
    */
   updated_at: string;

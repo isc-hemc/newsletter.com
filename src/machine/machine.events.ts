@@ -16,6 +16,10 @@ export interface IMachineEvents extends IMachineContext {
    */
   content: string;
   /**
+   * File with a bunch of contacts, this value is temporal.
+   */
+  csv: File;
+  /**
    * Template or recipients CSV name.
    */
   name: string;

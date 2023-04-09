@@ -1,7 +1,7 @@
 {
   "api.default.status-code.201": "The resource has been successfully created.",
   "api.default.status-code.400": "An error occurred while processing your request.",
-  "api.default.status-code.403": "You don't have the permissions to perform the requested operation.",
+  "api.default.status-code.403": "Duplate entries for this resource.",
   "api.default.status-code.404": "The resource you are trying to access doesn't exist.",
   "api.default.status-code.500": "An unexpected error occurred, please try again later or contact our support team.",
   "api.default.status-code.503": "Service unavailable, please try again later or contact our support team.",

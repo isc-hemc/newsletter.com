@@ -28,6 +28,7 @@ const NODES = {
   [MachineNodes.REVIEW]: ReviewNode,
   [MachineNodes.RESULT]: ResultsNode,
   [MachineNodes.CREATE_TEMPLATE]: LoadingNode,
+  [MachineNodes.CREATE_RECIPIENTS]: LoadingNode,
   [MachineNodes.CREATE_NEWSLETTER]: LoadingNode,
   [MachineNodes.SUBMIT_NEWSLETTER]: LoadingNode,
 };

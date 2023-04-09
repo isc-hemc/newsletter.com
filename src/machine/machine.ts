@@ -2,11 +2,13 @@
 import { i18n } from 'locales';
 import fp from 'lodash/fp';
 import { toast as t } from 'react-toastify';
-import { TemplateResources } from 'services/resources';
 import {
+  BulkResources,
+  IBulkPayload,
   INewsletterPayload,
   NewsletterResources,
-} from 'services/resources/newsletter';
+  TemplateResources,
+} from 'services/resources';
 import { assign, createMachine } from 'xstate';
 
 import { IMachineContext, INITIAL_CONTEXT } from './machine.context';
@@ -55,7 +57,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
       },
       [MachineNodes.CREATE_TEMPLATE]: {
         invoke: {
-          id: MachineNodes.CREATE_TEMPLATE,
+          id: 'CREATE_TEMPLATE',
           onDone: {
             actions: [MachineActions.UPDATE_CONTEXT, MachineActions.SUCCESS],
             target: MachineNodes.RECIPIENTS,
@@ -73,8 +75,22 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
             target: MachineNodes.TEMPLATE,
           },
           NEXT: {
+            target: MachineNodes.CREATE_RECIPIENTS,
+          },
+        },
+      },
+      [MachineNodes.CREATE_RECIPIENTS]: {
+        invoke: {
+          id: 'CREATE_RECIPIENTS',
+          onDone: {
+            actions: [MachineActions.UPDATE_CONTEXT, MachineActions.SUCCESS],
             target: MachineNodes.NEWSLETTER,
           },
+          onError: {
+            actions: MachineActions.FAILURE,
+            target: MachineNodes.RECIPIENTS,
+          },
+          src: MachineServices.CREATE_RECIPIENTS,
         },
       },
       [MachineNodes.NEWSLETTER]: {
@@ -89,7 +105,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
       },
       [MachineNodes.CREATE_NEWSLETTER]: {
         invoke: {
-          id: MachineServices.CREATE_NEWSLETTER,
+          id: 'CREATE_NEWSLETTER',
           onDone: {
             actions: [MachineActions.UPDATE_CONTEXT, MachineActions.SUCCESS],
             target: MachineNodes.REVIEW,
@@ -110,7 +126,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
       },
       [MachineNodes.SUBMIT_NEWSLETTER]: {
         invoke: {
-          id: MachineServices.SUBMIT_NEWSLETTER,
+          id: 'SUBMIT_NEWSLETTER',
           onDone: {
             actions: MachineActions.SUCCESS,
             target: MachineNodes.RESULT,
@@ -146,7 +162,14 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
         const { data } = await TemplateResources.post({ content, name });
         return { template_id: data?.id };
       },
-
+      [MachineServices.CREATE_RECIPIENTS]: async (_ctx, { csv, name }) => {
+        if (!name && !csv) return {};
+        const payload = new FormData();
+        payload.append('name', name);
+        payload.append('csv', csv, csv.name);
+        const { data } = await BulkResources.post(payload as IBulkPayload);
+        return { bulk_id: data?.id };
+      },
       [MachineServices.CREATE_NEWSLETTER]: async (ctx, evt) => {
         const p = new FormData();
 

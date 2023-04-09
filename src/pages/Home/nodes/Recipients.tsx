@@ -1,6 +1,7 @@
 import { FileField, InputField } from 'components/forms';
 import { H1, H2 } from 'components/typography';
-import { useCallback } from 'react';
+import { NewsletterContext } from 'contexts';
+import { useCallback, useContext } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -8,7 +9,9 @@ const DEFAULT_VALUES = { csv: undefined, name: '' };
 
 type IBulkPayload = { name: string; csv?: File };
 
-export const RecipientsScreen = (): JSX.Element => {
+export const RecipientsNode = (): JSX.Element => {
+  const context = useContext(NewsletterContext);
+
   const methods = useForm<IBulkPayload>({
     defaultValues: DEFAULT_VALUES,
     mode: 'all',
@@ -17,17 +20,16 @@ export const RecipientsScreen = (): JSX.Element => {
   const { t } = useTranslation('page:home');
 
   const handleOnSubmit = useCallback((v: IBulkPayload) => {
-    // eslint-disable-next-line no-console
-    console.log(v);
+    context?.send('NEXT', v);
   }, []);
 
   return (
     <>
       <H1 className="mb-2 text-center uppercase">
-        {t('screen.recipients.title')}
+        {t('node.recipients.title')}
       </H1>
 
-      <H2 className="mb-8 text-center">{t('screen.recipients.subtitle')}</H2>
+      <H2 className="mb-8 text-center">{t('node.recipients.subtitle')}</H2>
 
       <FormProvider {...methods}>
         <form

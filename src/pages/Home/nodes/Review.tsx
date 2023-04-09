@@ -5,7 +5,7 @@ import { NewsletterContext } from 'contexts';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const ReviewScreen = (): JSX.Element => {
+export const ReviewNode = (): JSX.Element => {
   const context = useContext(NewsletterContext);
 
   const [state] = useActor(context);
@@ -14,9 +14,9 @@ export const ReviewScreen = (): JSX.Element => {
 
   return (
     <>
-      <H1 className="mb-2 text-center uppercase">{t('screen.review.title')}</H1>
+      <H1 className="mb-2 text-center uppercase">{t('node.review.title')}</H1>
 
-      <H2 className="mb-8 text-center">{t('screen.review.subtitle')}</H2>
+      <H2 className="mb-8 text-center">{t('node.review.subtitle')}</H2>
 
       <div className="flex flex-1 flex-col rounded-xl border-2 border-gray-200 bg-white p-8">
         <pre>{JSON.stringify(state?.value, null, 2)}</pre>

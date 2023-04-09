@@ -54,7 +54,7 @@ const VALIDATION_SCHEMA = Yup.object().shape({
   template_id: Yup.string().nullable(),
 });
 
-export const BuilderScreen = (): JSX.Element => {
+export const BuilderNode = (): JSX.Element => {
   const context = useContext(NewsletterContext);
 
   const methods = useForm<IBuilderPayload>({
@@ -71,11 +71,9 @@ export const BuilderScreen = (): JSX.Element => {
 
   return (
     <>
-      <H1 className="mb-2 text-center uppercase">
-        {t('screen.builder.title')}
-      </H1>
+      <H1 className="mb-2 text-center uppercase">{t('node.builder.title')}</H1>
 
-      <H2 className="mb-8 text-center">{t('screen.builder.subtitle')}</H2>
+      <H2 className="mb-8 text-center">{t('node.builder.subtitle')}</H2>
 
       <FormProvider {...methods}>
         <form
@@ -84,7 +82,7 @@ export const BuilderScreen = (): JSX.Element => {
           onSubmit={methods.handleSubmit(handleOnSubmit)}
         >
           <InputField
-            label={t('screen.builder.subject.label')}
+            label={t('node.builder.subject.label')}
             name="subject"
             size="md"
           />
@@ -92,15 +90,15 @@ export const BuilderScreen = (): JSX.Element => {
           <QuerySuggestions query={TR.fetch} queryKey="fetch-templates">
             {({ data, isLoading }) => (
               <SelectField
-                helper={t('screen.builder.template.helper')}
+                helper={t('node.builder.template.helper')}
                 isLoading={isLoading}
-                label={t('screen.builder.template.label')}
+                label={t('node.builder.template.label')}
                 name="template_id"
                 options={data?.results?.map(({ id: value, name: label }) => ({
                   label,
                   value,
                 }))}
-                placeholder={t('screen.builder.template.placeholder')}
+                placeholder={t('node.builder.template.placeholder')}
                 size="md"
               />
             )}
@@ -109,15 +107,15 @@ export const BuilderScreen = (): JSX.Element => {
           <QuerySuggestions query={BR.fetch} queryKey="fetch-bulks">
             {({ data, isLoading }) => (
               <SelectField
-                helper={t('screen.builder.recipients.helper')}
+                helper={t('node.builder.recipients.helper')}
                 isLoading={isLoading}
-                label={t('screen.builder.recipients.label')}
+                label={t('node.builder.recipients.label')}
                 name="bulk_id"
                 options={data?.results?.map(({ id: value, name: label }) => ({
                   label,
                   value,
                 }))}
-                placeholder={t('screen.builder.recipients.placeholder')}
+                placeholder={t('node.builder.recipients.placeholder')}
                 size="md"
               />
             )}
@@ -125,9 +123,9 @@ export const BuilderScreen = (): JSX.Element => {
 
           <FileField
             accept=".png,.pdf"
-            helper={t('screen.builder.attachment.helper')}
+            helper={t('node.builder.attachment.helper')}
             icon="img"
-            label={t('screen.builder.attachment.label')}
+            label={t('node.builder.attachment.label')}
             name="attachment"
           />
         </form>

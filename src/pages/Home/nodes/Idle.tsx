@@ -12,17 +12,17 @@ import { RiMailSettingsLine } from 'react-icons/ri';
 import { IPropsOf } from 'types.d';
 
 const MANUAL_SETUP_BENEFITS = [
-  i18n.t('screen.idle.manual-setup.create-template', { ns: 'page:home' }),
-  i18n.t('screen.idle.manual-setup.upload-contacts', { ns: 'page:home' }),
-  i18n.t('screen.idle.manual-setup.config-newsletter', { ns: 'page:home' }),
-  i18n.t('screen.idle.manual-setup.upload-attachment', { ns: 'page:home' }),
+  i18n.t('node.idle.manual-setup.create-template', { ns: 'page:home' }),
+  i18n.t('node.idle.manual-setup.upload-contacts', { ns: 'page:home' }),
+  i18n.t('node.idle.manual-setup.config-newsletter', { ns: 'page:home' }),
+  i18n.t('node.idle.manual-setup.upload-attachment', { ns: 'page:home' }),
 ];
 
 const QUICK_START_BENEFITS = [
-  i18n.t('screen.idle.quick-start.select-template', { ns: 'page:home' }),
-  i18n.t('screen.idle.quick-start.select-contacts', { ns: 'page:home' }),
-  i18n.t('screen.idle.quick-start.review-newsletter', { ns: 'page:home' }),
-  i18n.t('screen.idle.quick-start.less-than-a-minute', { ns: 'page:home' }),
+  i18n.t('node.idle.quick-start.select-template', { ns: 'page:home' }),
+  i18n.t('node.idle.quick-start.select-contacts', { ns: 'page:home' }),
+  i18n.t('node.idle.quick-start.review-newsletter', { ns: 'page:home' }),
+  i18n.t('node.idle.quick-start.less-than-a-minute', { ns: 'page:home' }),
 ];
 
 const Box = clomp.div`
@@ -87,16 +87,16 @@ export const Card: React.FC<ICardProps> = ({
   );
 };
 
-export const IdleScreen = (): JSX.Element => {
+export const IdleNode = (): JSX.Element => {
   const context = useContext(NewsletterContext);
 
   const { t } = useTranslation('page:home');
 
   return (
     <>
-      <H1 className="mb-2 text-center uppercase">{t('screen.idle.title')}</H1>
+      <H1 className="mb-2 text-center uppercase">{t('node.idle.title')}</H1>
 
-      <H2 className="mb-8 text-center">{t('screen.idle.subtitle')}</H2>
+      <H2 className="mb-8 text-center">{t('node.idle.subtitle')}</H2>
 
       <div className="flex flex-col gap-4 md:flex-row">
         <Card
@@ -104,7 +104,7 @@ export const IdleScreen = (): JSX.Element => {
           className="flex-1"
           icon={RiMailSettingsLine}
           onClick={() => context?.send('MANUAL_SETUP')}
-          title={t('screen.idle.manual-setup.title')}
+          title={t('node.idle.manual-setup.title')}
         />
 
         <Card
@@ -112,7 +112,7 @@ export const IdleScreen = (): JSX.Element => {
           className="flex-1"
           icon={MdOutlineTimer}
           onClick={() => context?.send('QUICK_START')}
-          title={t('screen.idle.quick-start.title')}
+          title={t('node.idle.quick-start.title')}
         />
       </div>
     </>

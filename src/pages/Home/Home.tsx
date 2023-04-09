@@ -10,22 +10,22 @@ import { useTranslation } from 'react-i18next';
 
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
-import { BuilderScreen } from './screens/Builder';
-import { IdleScreen } from './screens/Idle';
-import { NewsletterScreen } from './screens/Newsletter';
-import { RecipientsScreen } from './screens/Recipients';
-import { ResultsScreen } from './screens/Results';
-import { ReviewScreen } from './screens/Review';
-import { TemplateScreen } from './screens/Template';
+import { BuilderNode } from './nodes/Builder';
+import { IdleNode } from './nodes/Idle';
+import { NewsletterNode } from './nodes/Newsletter';
+import { RecipientsNode } from './nodes/Recipients';
+import { ResultsNode } from './nodes/Results';
+import { ReviewNode } from './nodes/Review';
+import { TemplateNode } from './nodes/Template';
 
-const SCREEN_NODES = {
-  [MachineNodes.IDLE]: IdleScreen,
-  [MachineNodes.BUILDER]: BuilderScreen,
-  [MachineNodes.TEMPLATE]: TemplateScreen,
-  [MachineNodes.RECIPIENTS]: RecipientsScreen,
-  [MachineNodes.NEWSLETTER]: NewsletterScreen,
-  [MachineNodes.REVIEW]: ReviewScreen,
-  [MachineNodes.RESULT]: ResultsScreen,
+const NODES = {
+  [MachineNodes.IDLE]: IdleNode,
+  [MachineNodes.BUILDER]: BuilderNode,
+  [MachineNodes.TEMPLATE]: TemplateNode,
+  [MachineNodes.RECIPIENTS]: RecipientsNode,
+  [MachineNodes.NEWSLETTER]: NewsletterNode,
+  [MachineNodes.REVIEW]: ReviewNode,
+  [MachineNodes.RESULT]: ResultsNode,
 };
 
 const Node = (): JSX.Element => {
@@ -46,7 +46,7 @@ const Node = (): JSX.Element => {
   const [state] = useActor(context);
 
   const UI = useMemo(
-    () => SCREEN_NODES[state.value as keyof typeof MachineNodes],
+    () => NODES[state.value as keyof typeof MachineNodes],
     [state?.value],
   );
 

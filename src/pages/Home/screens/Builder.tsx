@@ -1,8 +1,10 @@
+import { QuerySuggestions } from 'components/elements';
 import { FileField, InputField, SelectField } from 'components/forms';
 import { H1, H2 } from 'components/typography';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { TemplateResources as TR } from 'services/resources';
 
 const DEFAULT_VALUES = {
   attachment: undefined,
@@ -51,14 +53,22 @@ export const BuilderScreen = (): JSX.Element => {
             size="md"
           />
 
-          <SelectField
-            helper={t('screen.builder.template.helper')}
-            label={t('screen.builder.template.label')}
-            name="template_id"
-            options={[]}
-            placeholder={t('screen.builder.template.placeholder')}
-            size="md"
-          />
+          <QuerySuggestions query={TR.fetch} queryKey="fetch-templates">
+            {({ data, isLoading }) => (
+              <SelectField
+                helper={t('screen.builder.template.helper')}
+                isLoading={isLoading}
+                label={t('screen.builder.template.label')}
+                name="template_id"
+                options={data?.results?.map(({ id: value, name: label }) => ({
+                  label,
+                  value,
+                }))}
+                placeholder={t('screen.builder.template.placeholder')}
+                size="md"
+              />
+            )}
+          </QuerySuggestions>
 
           <SelectField
             helper={t('screen.builder.recipients.helper')}

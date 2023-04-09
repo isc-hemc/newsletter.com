@@ -1,17 +1,23 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { QuerySuggestions } from 'components/elements';
 import { FileField, InputField, SelectField } from 'components/forms';
 import { H1, H2 } from 'components/typography';
-import { useCallback } from 'react';
+import { NewsletterContext } from 'contexts';
+import fp from 'lodash/fp';
+import { useCallback, useContext } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { TemplateResources as TR } from 'services/resources';
-
-const DEFAULT_VALUES = {
-  attachment: undefined,
-  bulk_id: '',
-  subject: '',
-  template_id: '',
-};
+import {
+  BulkResources as BR,
+  TemplateResources as TR,
+} from 'services/resources';
+import {
+  isValidFileFormat,
+  isValidFileSize,
+  PDF_FORMAT,
+  PNG_FORMAT,
+} from 'utils';
+import * as Yup from 'yup';
 
 type IBuilderPayload = {
   attachment?: File;
@@ -20,17 +26,47 @@ type IBuilderPayload = {
   template_id?: string;
 };
 
+const DEFAULT_VALUES: IBuilderPayload = {
+  attachment: undefined,
+  bulk_id: '',
+  subject: '',
+  template_id: '',
+};
+
+const VALIDATION_SCHEMA = Yup.object().shape({
+  attachment: Yup.mixed()
+    .test('file-size', 'form.file-size', (v) => {
+      if (fp.isNil(v) || fp.isString(v)) return true;
+      return fp.compose(isValidFileSize, fp.get('size'))(v);
+    })
+    .test('file-format', 'form.file-format', (v) => {
+      if (fp.isNil(v) || fp.isString(v)) return true;
+      return fp.compose(
+        isValidFileFormat([PDF_FORMAT, PNG_FORMAT]),
+        fp.get('type'),
+      )(v);
+    }),
+
+  bulk_id: Yup.string().nullable(),
+
+  subject: Yup.string().required('form.required'),
+
+  template_id: Yup.string().nullable(),
+});
+
 export const BuilderScreen = (): JSX.Element => {
+  const context = useContext(NewsletterContext);
+
   const methods = useForm<IBuilderPayload>({
     defaultValues: DEFAULT_VALUES,
     mode: 'all',
+    resolver: yupResolver(VALIDATION_SCHEMA),
   });
 
   const { t } = useTranslation('page:home');
 
   const handleOnSubmit = useCallback((v: IBuilderPayload) => {
-    // eslint-disable-next-line no-console
-    console.log(v);
+    context?.send('NEXT', v);
   }, []);
 
   return (
@@ -70,14 +106,22 @@ export const BuilderScreen = (): JSX.Element => {
             )}
           </QuerySuggestions>
 
-          <SelectField
-            helper={t('screen.builder.recipients.helper')}
-            label={t('screen.builder.recipients.label')}
-            name="bulk_id"
-            options={[]}
-            placeholder={t('screen.builder.recipients.placeholder')}
-            size="md"
-          />
+          <QuerySuggestions query={BR.fetch} queryKey="fetch-bulks">
+            {({ data, isLoading }) => (
+              <SelectField
+                helper={t('screen.builder.recipients.helper')}
+                isLoading={isLoading}
+                label={t('screen.builder.recipients.label')}
+                name="bulk_id"
+                options={data?.results?.map(({ id: value, name: label }) => ({
+                  label,
+                  value,
+                }))}
+                placeholder={t('screen.builder.recipients.placeholder')}
+                size="md"
+              />
+            )}
+          </QuerySuggestions>
 
           <FileField
             accept=".png,.pdf"

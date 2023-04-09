@@ -1,4 +1,6 @@
 {
-  "form.required": "This field is required.",
-  "form.email": "Enter a valid email."
+  "form.email": "Enter a valid email.",
+  "form.file-format": "File format not allowed.",
+  "form.file-size": "The max file size allowed is 5MB.",
+  "form.required": "This field is required."
 }

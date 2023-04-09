@@ -10,7 +10,7 @@ import * as Yup from 'yup';
 
 const DEFAULT_VALUES = { email: '', last_name: '', name: '' };
 
-const validationSchema = Yup.object().shape({
+const VALIDATION_SCHEMA = Yup.object().shape({
   email: Yup.string().email('form.email').required('form.required'),
 
   last_name: Yup.string().required('form.required'),
@@ -38,7 +38,7 @@ export const SingleContactForm: React.FC<ISingleContactFormProps> = ({
   const methods = useForm<IContactPayload>({
     defaultValues: DEFAULT_VALUES,
     mode: 'all',
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(VALIDATION_SCHEMA),
   });
 
   const { t } = useTranslation('page:contacts');

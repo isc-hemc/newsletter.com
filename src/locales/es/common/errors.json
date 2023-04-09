@@ -1,4 +1,6 @@
 {
-  "form.required": "Este campo es requerido.",
-  "form.email": "Agregar un correo electrónico válido."
+  "form.email": "Agregar un correo electrónico válido.",
+  "form.file-format": "El formato de este archivo no esta permitido.",
+  "form.file-size": "El tamaño máximo permitido es de 5MB.",
+  "form.required": "Este campo es requerido."
 }

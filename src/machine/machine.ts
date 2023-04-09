@@ -99,7 +99,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
             target: MachineNodes.RECIPIENTS,
           },
           NEXT: {
-            target: MachineNodes.REVIEW,
+            target: MachineNodes.CREATE_NEWSLETTER,
           },
         },
       },
@@ -163,7 +163,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
         return { template_id: data?.id };
       },
       [MachineServices.CREATE_RECIPIENTS]: async (_ctx, { csv, name }) => {
-        if (!name && !csv) return {};
+        if (!name || !csv) return {};
         const payload = new FormData();
         payload.append('name', name);
         payload.append('csv', csv, csv.name);
@@ -192,8 +192,8 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
         );
 
         return {
+          bulk_id: evt?.bulk_id ? evt?.bulk_id : ctx?.bulk_id,
           newsletter_id: data?.id,
-          ...fp.pick(['bulk_id', 'template_id'])(evt),
         };
       },
 

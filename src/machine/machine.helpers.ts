@@ -1,3 +1,5 @@
+import { IMachineContext } from './machine.context';
+
 /**
  * Enum for the machine nodes.
  * @readonly
@@ -12,6 +14,7 @@ export enum MachineNodes {
   REVIEW = 'REVIEW',
   RESULT = 'RESULT',
   CREATE_NEWSLETTER = 'CREATE_NEWSLETTER',
+  SUBMIT_NEWSLETTER = 'SUBMIT_NEWSLETTER',
 }
 
 /**
@@ -40,6 +43,21 @@ export enum MachineActions {
 /**
  * Events definition that will help the machine to decide to which node move.
  */
-export type MachineEvents = {
+export interface MachineEvents extends IMachineContext {
+  /**
+   * Binary representation of a PDF or PNG file, this value is temporal.
+   */
+  attachment: File;
+  /**
+   * Newsletter subject message, this value is temporal.
+   */
+  subject: string;
+  /**
+   * Foreign key of a template registry, this value is temporal.
+   */
+  template_id: string;
+  /**
+   * Machine valid events.
+   */
   type: 'BACK' | 'MANUAL_SETUP' | 'NEXT' | 'QUICK_START';
-};
+}

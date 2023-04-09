@@ -1,4 +1,8 @@
 import fp from 'lodash/fp';
+import {
+  INewsletterPayload,
+  NewsletterResources,
+} from 'services/resources/newsletter';
 import { assign, createMachine } from 'xstate';
 
 import { IMachineContext, INITIAL_CONTEXT } from './machine.context';
@@ -67,7 +71,7 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
       },
       [MachineNodes.CREATE_NEWSLETTER]: {
         invoke: {
-          id: 'create-newsletter',
+          id: MachineServices.CREATE_NEWSLETTER,
           onDone: {
             actions: MachineActions.UPDATE_CONTEXT,
             target: MachineNodes.REVIEW,
@@ -81,8 +85,20 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
       [MachineNodes.REVIEW]: {
         on: {
           NEXT: {
+            target: MachineNodes.SUBMIT_NEWSLETTER,
+          },
+        },
+      },
+      [MachineNodes.SUBMIT_NEWSLETTER]: {
+        invoke: {
+          id: MachineServices.SUBMIT_NEWSLETTER,
+          onDone: {
             target: MachineNodes.RESULT,
           },
+          onError: {
+            target: MachineNodes.REVIEW,
+          },
+          src: MachineServices.SUBMIT_NEWSLETTER,
         },
       },
       [MachineNodes.RESULT]: {
@@ -98,10 +114,37 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
       })),
     },
     services: {
-      [MachineServices.CREATE_NEWSLETTER]: async (ctx, evt) => ({
-        newsletter_id: 'some-id',
-        ...fp.pick(['attachment', 'bulk_id', 'template_id'])(evt),
-      }),
+      [MachineServices.CREATE_NEWSLETTER]: async (ctx, evt) => {
+        const p = new FormData();
+
+        p.append('subject', evt?.subject);
+
+        if (ctx?.template_id) {
+          p.append('template_id', ctx.template_id);
+        }
+
+        if (evt?.template_id) {
+          p.append('template_id', evt.template_id);
+        }
+
+        if (evt?.attachment) {
+          p.append('attachment', evt.attachment, evt.attachment?.name);
+        }
+
+        const { data } = await NewsletterResources.post(
+          p as INewsletterPayload,
+        );
+
+        return {
+          newsletter_id: data?.id,
+          ...fp.pick(['bulk_id', 'template_id'])(evt),
+        };
+      },
+      [MachineServices.SUBMIT_NEWSLETTER]: async (ctx) => {
+        const { newsletter_id: newsletter, bulk_id } = ctx;
+
+        await NewsletterResources.submission(newsletter as string, { bulk_id });
+      },
     },
   },
 );

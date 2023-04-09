@@ -28,6 +28,7 @@ const NODES = {
   [MachineNodes.REVIEW]: ReviewNode,
   [MachineNodes.RESULT]: ResultsNode,
   [MachineNodes.CREATE_NEWSLETTER]: LoadingNode,
+  [MachineNodes.SUBMIT_NEWSLETTER]: LoadingNode,
 };
 
 const Node = (): JSX.Element => {

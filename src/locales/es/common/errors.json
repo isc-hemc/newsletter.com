@@ -1,4 +1,10 @@
 {
+  "api.default.status-code.201": "El recurso se ha creado de forma exitosa.",
+  "api.default.status-code.400": "Ocurrio un error al procesar tu solicitud.",
+  "api.default.status-code.403": "No cuentas con los permisos para realizar la operación solicitada.",
+  "api.default.status-code.404": "El recurso al que intentas acceder no existe.",
+  "api.default.status-code.500": "Ocurrio un error inesperado, intentalo de nuevo más tarde o comunícate con nuestro equipo de soporte.",
+  "api.default.status-code.503": "Fuera de servicio, intentalo de nuevo más tarde o comunícate con nuestro equipo de soporte.",
   "form.email": "Agregar un correo electrónico válido.",
   "form.file-format": "El formato de este archivo no esta permitido.",
   "form.file-size": "El tamaño máximo permitido es de 5MB.",

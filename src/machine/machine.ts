@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { i18n } from 'locales';
 import fp from 'lodash/fp';
+import { toast } from 'react-toastify';
 import {
   INewsletterPayload,
   NewsletterResources,
@@ -6,14 +9,14 @@ import {
 import { assign, createMachine } from 'xstate';
 
 import { IMachineContext, INITIAL_CONTEXT } from './machine.context';
+import { IMachineEvents } from './machine.events';
 import {
   MachineActions,
-  MachineEvents,
   MachineNodes,
   MachineServices,
 } from './machine.helpers';
 
-export const Machine = createMachine<IMachineContext, MachineEvents>(
+export const Machine = createMachine<IMachineContext, IMachineEvents>(
   {
     context: INITIAL_CONTEXT,
     id: 'MACHINE',
@@ -73,10 +76,11 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
         invoke: {
           id: MachineServices.CREATE_NEWSLETTER,
           onDone: {
-            actions: MachineActions.UPDATE_CONTEXT,
+            actions: [MachineActions.UPDATE_CONTEXT, MachineActions.SUCCESS],
             target: MachineNodes.REVIEW,
           },
           onError: {
+            actions: MachineActions.FAILURE,
             target: MachineNodes.BUILDER,
           },
           src: MachineServices.CREATE_NEWSLETTER,
@@ -93,9 +97,11 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
         invoke: {
           id: MachineServices.SUBMIT_NEWSLETTER,
           onDone: {
+            actions: MachineActions.SUCCESS,
             target: MachineNodes.RESULT,
           },
           onError: {
+            actions: MachineActions.FAILURE,
             target: MachineNodes.REVIEW,
           },
           src: MachineServices.SUBMIT_NEWSLETTER,
@@ -108,6 +114,14 @@ export const Machine = createMachine<IMachineContext, MachineEvents>(
   },
   {
     actions: {
+      [MachineActions.SUCCESS]: assign((ctx) => ({ ...ctx, error: false })),
+      [MachineActions.FAILURE]: assign((ctx, evt) => {
+        const STATUS = (evt as any)?.data?.response?.status;
+        toast.error(
+          i18n.t(`api.default.status-code.${STATUS}`, { ns: 'errors' }),
+        );
+        return { ...ctx, error: true };
+      }),
       [MachineActions.UPDATE_CONTEXT]: assign((ctx, evt) => ({
         ...ctx,
         ...fp.compose(fp.get('data'), fp.omit('type'))(evt),

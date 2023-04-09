@@ -1,5 +1,6 @@
 import './assets/css/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Dashboard } from 'Dashboard';
 import { i18n } from 'locales';
@@ -14,9 +15,10 @@ import { HelmetProvider } from 'react-helmet-async';
 import { I18nextProvider } from 'react-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import reportWebVitals from 'reportWebVitals';
 
-export const router = createBrowserRouter([
+const ROUTER = createBrowserRouter([
   {
     children: [
       {
@@ -59,9 +61,10 @@ const MOUNT_NODE = ReactDOM.createRoot(
 MOUNT_NODE.render(
   <StrictMode>
     <I18nextProvider i18n={i18n} />
+    <ToastContainer theme="colored" />
     <HelmetProvider>
       <QueryClientProvider client={QUERY_CLIENT}>
-        <RouterProvider router={router} />
+        <RouterProvider router={ROUTER} />
       </QueryClientProvider>
     </HelmetProvider>
   </StrictMode>,

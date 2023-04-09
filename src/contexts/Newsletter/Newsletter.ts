@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IMachineContext, MachineEvents } from 'machine';
+import { IMachineContext, IMachineEvents } from 'machine';
 import { createContext } from 'react';
 import {
   BaseActionObject,
@@ -12,14 +12,14 @@ import {
 export type INewsletterProps = Interpreter<
   IMachineContext,
   any,
-  MachineEvents,
+  IMachineEvents,
   {
     value: any;
     context: IMachineContext;
   },
   ResolveTypegenMeta<
     TypegenDisabled,
-    MachineEvents,
+    IMachineEvents,
     BaseActionObject,
     ServiceMap
   >

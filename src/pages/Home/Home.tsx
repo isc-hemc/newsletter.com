@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { BuilderNode } from './nodes/Builder';
 import { IdleNode } from './nodes/Idle';
+import { LoadingNode } from './nodes/Loading';
 import { NewsletterNode } from './nodes/Newsletter';
 import { RecipientsNode } from './nodes/Recipients';
 import { ResultsNode } from './nodes/Results';
@@ -26,6 +27,7 @@ const NODES = {
   [MachineNodes.NEWSLETTER]: NewsletterNode,
   [MachineNodes.REVIEW]: ReviewNode,
   [MachineNodes.RESULT]: ResultsNode,
+  [MachineNodes.CREATE_NEWSLETTER]: LoadingNode,
 };
 
 const Node = (): JSX.Element => {

@@ -11,6 +11,7 @@ export enum MachineNodes {
   NEWSLETTER = 'NEWSLETTER',
   REVIEW = 'REVIEW',
   RESULT = 'RESULT',
+  CREATE_NEWSLETTER = 'CREATE_NEWSLETTER',
 }
 
 /**
@@ -33,6 +34,7 @@ export enum MachineServices {
 export enum MachineActions {
   FAILURE = 'FAILURE',
   SUCCESS = 'SUCCESS',
+  UPDATE_CONTEXT = 'UPDATE_CONTEXT',
 }
 
 /**

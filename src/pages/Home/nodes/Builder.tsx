@@ -28,9 +28,9 @@ type IBuilderPayload = {
 
 const DEFAULT_VALUES: IBuilderPayload = {
   attachment: undefined,
-  bulk_id: '',
+  bulk_id: undefined,
   subject: '',
-  template_id: '',
+  template_id: undefined,
 };
 
 const VALIDATION_SCHEMA = Yup.object().shape({

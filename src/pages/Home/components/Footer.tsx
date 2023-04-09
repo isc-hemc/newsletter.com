@@ -53,7 +53,8 @@ export const Footer: React.FC<IFooterProps> = ({
         <Button
           className="px-6 py-2 text-sm"
           colorScheme="tertiary"
-          onClick={() => context?.send('NEXT')}
+          form="newsletter-forms"
+          type="submit"
         >
           {t('button.next')}
         </Button>

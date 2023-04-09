@@ -36,6 +36,7 @@ export const NewsletterScreen = (): JSX.Element => {
       <FormProvider {...methods}>
         <form
           className="flex flex-col gap-4"
+          id="newsletter-forms"
           onSubmit={methods.handleSubmit(handleOnSubmit)}
         >
           <InputField

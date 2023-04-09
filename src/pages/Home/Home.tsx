@@ -27,6 +27,7 @@ const NODES = {
   [MachineNodes.NEWSLETTER]: NewsletterNode,
   [MachineNodes.REVIEW]: ReviewNode,
   [MachineNodes.RESULT]: ResultsNode,
+  [MachineNodes.CREATE_TEMPLATE]: LoadingNode,
   [MachineNodes.CREATE_NEWSLETTER]: LoadingNode,
   [MachineNodes.SUBMIT_NEWSLETTER]: LoadingNode,
 };

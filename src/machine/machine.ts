@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { i18n } from 'locales';
 import fp from 'lodash/fp';
-import { toast } from 'react-toastify';
+import { toast as t } from 'react-toastify';
+import { TemplateResources } from 'services/resources';
 import {
   INewsletterPayload,
   NewsletterResources,
@@ -48,8 +49,22 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
             target: MachineNodes.IDLE,
           },
           NEXT: {
+            target: MachineNodes.CREATE_TEMPLATE,
+          },
+        },
+      },
+      [MachineNodes.CREATE_TEMPLATE]: {
+        invoke: {
+          id: MachineNodes.CREATE_TEMPLATE,
+          onDone: {
+            actions: [MachineActions.UPDATE_CONTEXT, MachineActions.SUCCESS],
             target: MachineNodes.RECIPIENTS,
           },
+          onError: {
+            actions: MachineActions.FAILURE,
+            target: MachineNodes.TEMPLATE,
+          },
+          src: MachineServices.CREATE_TEMPLATE,
         },
       },
       [MachineNodes.RECIPIENTS]: {
@@ -114,20 +129,24 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
   },
   {
     actions: {
-      [MachineActions.SUCCESS]: assign((ctx) => ({ ...ctx, error: false })),
       [MachineActions.FAILURE]: assign((ctx, evt) => {
         const STATUS = (evt as any)?.data?.response?.status;
-        toast.error(
-          i18n.t(`api.default.status-code.${STATUS}`, { ns: 'errors' }),
-        );
+        t.error(i18n.t(`api.default.status-code.${STATUS}`, { ns: 'errors' }));
         return { ...ctx, error: true };
       }),
+      [MachineActions.SUCCESS]: assign((ctx) => ({ ...ctx, error: false })),
       [MachineActions.UPDATE_CONTEXT]: assign((ctx, evt) => ({
         ...ctx,
         ...fp.compose(fp.get('data'), fp.omit('type'))(evt),
       })),
     },
     services: {
+      [MachineServices.CREATE_TEMPLATE]: async (_ctx, { content, name }) => {
+        if (!name) return {};
+        const { data } = await TemplateResources.post({ content, name });
+        return { template_id: data?.id };
+      },
+
       [MachineServices.CREATE_NEWSLETTER]: async (ctx, evt) => {
         const p = new FormData();
 
@@ -154,6 +173,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
           ...fp.pick(['bulk_id', 'template_id'])(evt),
         };
       },
+
       [MachineServices.SUBMIT_NEWSLETTER]: async (ctx) => {
         const { newsletter_id: newsletter, bulk_id } = ctx;
 

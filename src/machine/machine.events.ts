@@ -12,6 +12,14 @@ export interface IMachineEvents extends IMachineContext {
    */
   attachment: File;
   /**
+   * Template content, it can be HTML code, this value is temporal.
+   */
+  content: string;
+  /**
+   * Template or recipients CSV name.
+   */
+  name: string;
+  /**
    * Newsletter subject message, this value is temporal.
    */
   subject: string;

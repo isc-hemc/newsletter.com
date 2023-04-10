@@ -1,5 +1,7 @@
 {
   "helmet": "Newsletter: Analytics",
   "subtitle": "In this section you can visualize information graphically regarding the records of the platform.",
-  "title": "Analytics"
+  "title": "Analytics",
+  "wip.title": "site under construction",
+  "wip.quote": "You can visit the rest of the dashboard using the navigation bar."
 }

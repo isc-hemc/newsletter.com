@@ -1,5 +1,6 @@
 import { css, cx } from '@emotion/css';
-import { Button } from 'components/elements';
+import Logo from 'assets/img/stori-logo.png';
+import { Button, Image } from 'components/elements';
 import { MobileNavigation, Sidebar } from 'components/layout';
 import { i18n } from 'locales';
 import { useMemo } from 'react';
@@ -7,7 +8,7 @@ import { use100vh } from 'react-div-100vh';
 import { useTranslation } from 'react-i18next';
 import { FaChartBar, FaFileAlt, FaUsers } from 'react-icons/fa';
 import { RiContactsBook2Fill, RiMailSettingsFill } from 'react-icons/ri';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const NAVIGATION_ITEMS = [
   {
@@ -57,7 +58,10 @@ export const Dashboard = (): JSX.Element => {
       <Sidebar navigation={NAVIGATION_ITEMS} />
 
       <div className="flex flex-1 flex-col overflow-hidden">
-        <header className="flex h-16 justify-end border-b-2 border-gray-200 bg-white px-4 lg:px-12">
+        <header className="flex h-16 items-center justify-between border-b-2 border-gray-200 bg-white px-4 lg:justify-end lg:px-12">
+          <Link className="block lg:hidden" to="/analytics">
+            <Image alt="header-avatar" height={32} src={Logo} width={118} />
+          </Link>
           <Button
             className="self-center text-sm"
             colorScheme="secondary"

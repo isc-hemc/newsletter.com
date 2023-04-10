@@ -1,5 +1,7 @@
 {
   "helmet": "Newsletter: Analítica",
   "subtitle": "En esta sección se puede visualizar información de forma grafica con respecto a los registros de la plataform.",
-  "title": "Analítica"
+  "title": "Analítica",
+  "wip.title": "sitio en construcción",
+  "wip.quote": "Puedes visitar al resto del dashboard utilizando la barra de navegación."
 }

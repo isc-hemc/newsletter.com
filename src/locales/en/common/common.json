@@ -17,6 +17,5 @@
   "sidebar.contacts": "Contacts",
   "sidebar.analytics": "Analytics",
   "sidebar.headline": "newsletter",
-  "sidebar.segments": "Segments",
   "version": "v{{value}}"
 }

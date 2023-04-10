@@ -5,7 +5,7 @@ import { i18n } from 'locales';
 import { useMemo } from 'react';
 import { use100vh } from 'react-div-100vh';
 import { useTranslation } from 'react-i18next';
-import { FaChartBar, FaObjectGroup } from 'react-icons/fa';
+import { FaChartBar } from 'react-icons/fa';
 import { RiContactsBook2Fill } from 'react-icons/ri';
 import { Outlet, useNavigate } from 'react-router-dom';
 
@@ -19,11 +19,6 @@ const NAVIGATION_ITEMS = [
     icon: RiContactsBook2Fill,
     label: i18n.t('sidebar.contacts', { ns: 'common' }),
     to: '/contacts',
-  },
-  {
-    icon: FaObjectGroup,
-    label: i18n.t('sidebar.segments', { ns: 'common' }),
-    to: '/segments',
   },
 ];
 

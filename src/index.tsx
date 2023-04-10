@@ -8,7 +8,6 @@ import { AnalyticsPage } from 'pages/Analytics';
 import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import { NotFoundPage } from 'pages/NotFound';
-import { SegmentsPage } from 'pages/Segments';
 import { SubscriptionsPage } from 'pages/Subscriptions';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -29,10 +28,6 @@ const ROUTER = createBrowserRouter([
       {
         element: <ContactsPage />,
         path: 'contacts',
-      },
-      {
-        element: <SegmentsPage />,
-        path: 'segments',
       },
     ],
     element: <Dashboard />,

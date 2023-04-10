@@ -3,11 +3,11 @@ import { clomp } from 'clomp';
 import { nanoid } from 'nanoid';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { IPropsOf } from 'types.d';
+import { INavigationItem, IPropsOf } from 'types.d';
 
 import packageJSON from '../../../../package.json';
 import { Headline } from './components/Headline';
-import { INavigationItem, Navigation } from './components/Navigation';
+import { Navigation } from './components/Navigation';
 
 const BACKGROUND_CLASS = css`
   background: linear-gradient(
@@ -52,15 +52,17 @@ export const Sidebar: React.FC<ISidebarProps> = ({
     >
       <Headline />
 
-      <ul className="flex-1 overflow-y-scroll">
-        {navigation?.map((item) => (
-          <li key={nanoid()}>
-            <Link to={item?.to}>
-              <Navigation {...item} />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <nav className="flex-1 overflow-y-scroll">
+        <ul>
+          {navigation?.map((item) => (
+            <li key={nanoid()}>
+              <Link to={item?.to}>
+                <Navigation {...item} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <p className="py-4 text-center text-xs font-bold text-primary-500">
         {t('version', { value: packageJSON?.version })}

@@ -1,9 +1,8 @@
 import { cx } from '@emotion/css';
 import { clomp } from 'clomp';
 import { useMemo } from 'react';
-import { IconType } from 'react-icons';
 import { useLocation } from 'react-router-dom';
-import { IPropsOf } from 'types.d';
+import { INavigationItem, IPropsOf } from 'types.d';
 
 const Box = clomp.div`
   flex
@@ -15,21 +14,6 @@ const Box = clomp.div`
   py-4
   hover:font-semibold
 `;
-
-export interface INavigationItem {
-  /**
-   * Icon that will be rendered on the left side of the navigation item.
-   */
-  icon: IconType;
-  /**
-   * Label that will describe the navigation item.
-   */
-  label: string;
-  /**
-   * Route to redirect on click events.
-   */
-  to: string;
-}
 
 export type INavigationProps = IPropsOf<'div'> & INavigationItem;
 
@@ -45,7 +29,7 @@ export const Navigation: React.FC<INavigationProps> = ({
 
   return (
     <Box className={cx({ '!border-primary-500': isSelected })} {...rest}>
-      <Icon size={22} />
+      <Icon color="#384967" size={22} />
       <p
         className={cx('flex-1 text-sm text-primary-500', {
           'font-bold': isSelected,

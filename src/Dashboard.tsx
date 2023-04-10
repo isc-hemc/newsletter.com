@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { Button } from 'components/elements';
-import { Sidebar } from 'components/layout';
+import { MobileNavigation, Sidebar } from 'components/layout';
 import { i18n } from 'locales';
 import { useMemo } from 'react';
 import { use100vh } from 'react-div-100vh';
@@ -63,10 +63,12 @@ export const Dashboard = (): JSX.Element => {
           </Button>
         </header>
 
-        <section className="flex flex-1 flex-col overflow-hidden bg-[#F6F8FB] px-4 py-8 lg:px-12">
+        <section className="flex flex-1 flex-col overflow-hidden bg-[#F6F8FB] px-4 pb-20 pt-8 lg:px-12 lg:pb-8">
           <Outlet />
         </section>
       </div>
+
+      <MobileNavigation navigation={NAVIGATION_ITEMS} />
     </main>
   );
 };

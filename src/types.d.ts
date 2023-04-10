@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type As<Props = any> = ElementType<Props>;
 
@@ -14,3 +16,18 @@ export type IPropsOf<T extends As> = ComponentPropsWithoutRef<T> & {
    */
   className?: string;
 };
+
+export interface INavigationItem {
+  /**
+   * Icon that will be rendered on the left side of the navigation item.
+   */
+  icon: IconType;
+  /**
+   * Label that will describe the navigation item.
+   */
+  label: string;
+  /**
+   * Route to redirect on click events.
+   */
+  to: string;
+}

@@ -9,6 +9,7 @@ import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import { NotFoundPage } from 'pages/NotFound';
 import { SubscriptionsPage } from 'pages/Subscriptions';
+import { TemplatesPage } from 'pages/Templates';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
@@ -28,6 +29,10 @@ const ROUTER = createBrowserRouter([
       {
         element: <ContactsPage />,
         path: 'contacts',
+      },
+      {
+        element: <TemplatesPage />,
+        path: 'templates',
       },
     ],
     element: <Dashboard />,

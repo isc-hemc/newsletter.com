@@ -25,7 +25,7 @@
   "node.idle.quick-start.less-than-a-minute": "Toma menos de 1 minuto.",
   "node.idle.quick-start.review-newsletter": "Revisa la información de tu correo.",
   "node.idle.quick-start.select-contacts": "Seleacciona una lista de contactos.",
-  "node.idle.quick-start.select-template": "Selecciona un template ya existente.",
+  "node.idle.quick-start.select-template": "Selecciona una plantilla existente.",
   "node.idle.quick-start.title": "inicio rápido",
   "node.idle.title": "crear newsletter",
   "node.idle.subtitle": "Bienvenido al portal de creación de Newsletters. En esta sección podrás decidir si crear uno completamente nuevo o utilizar elementos previamente registrados.",
@@ -39,5 +39,5 @@
   "node.review.title": "resumen",
   "node.review.subtitle": "En esta sección podrás validar la información de tu newsletter previamente a ser enviado.",
   "node.template.title": "crea tu plantilla",
-  "node.template.subtitle": "En esta sección podrás crear un template para tu newsletter completamente personalizado, en caso de que no requieras utilizar esta opción en este momento puedes dar clic en el botón de siguiente."
+  "node.template.subtitle": "En esta sección podrás crear una plantilla para tu newsletter completamente personalizado, en caso de que no requieras utilizar esta opción en este momento puedes dar clic en el botón de siguiente."
 }

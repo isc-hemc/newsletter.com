@@ -14,8 +14,9 @@
   "form.newsletter.subject.label": "Mail subject",
   "form.newsletter.type.label": "Category",
   "form.newsletter.type.placeholder": "Select...",
-  "sidebar.contacts": "Contacts",
   "sidebar.analytics": "Analytics",
+  "sidebar.contacts": "Contacts",
   "sidebar.headline": "newsletter",
+  "sidebar.templates": "Templates",
   "version": "v{{value}}"
 }

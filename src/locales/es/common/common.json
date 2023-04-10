@@ -14,8 +14,9 @@
   "form.newsletter.subject.label": "Asunto que aparecera en el correo",
   "form.newsletter.type.label": "Categoría",
   "form.newsletter.type.placeholder": "Selecciona...",
-  "sidebar.contacts": "Contactos",
   "sidebar.analytics": "Analítica",
+  "sidebar.contacts": "Contactos",
   "sidebar.headline": "newsletter",
+  "sidebar.templates": "Plantillas",
   "version": "v{{value}}"
 }

@@ -5,6 +5,7 @@ import contacts from './pages/contacts.json';
 import home from './pages/home.json';
 import notFound from './pages/not-found.json';
 import subscriptions from './pages/subscriptions.json';
+import templates from './pages/templates.json';
 
 export const translationsES = {
   common,
@@ -14,4 +15,5 @@ export const translationsES = {
   'page:home': home,
   'page:not-found': notFound,
   'page:subscriptions': subscriptions,
+  'page:templates': templates,
 };

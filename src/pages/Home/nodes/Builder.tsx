@@ -9,6 +9,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import {
   BulkResources as BR,
+  NewsletterTypeResources as NTR,
   TemplateResources as TR,
 } from 'services/resources';
 import {
@@ -22,6 +23,7 @@ import * as Yup from 'yup';
 type IBuilderPayload = {
   attachment?: File;
   bulk_id?: string;
+  newsletter_type_id?: string;
   subject: string;
   template_id?: string;
 };
@@ -29,6 +31,7 @@ type IBuilderPayload = {
 const DEFAULT_VALUES: IBuilderPayload = {
   attachment: undefined,
   bulk_id: undefined,
+  newsletter_type_id: undefined,
   subject: '',
   template_id: undefined,
 };
@@ -48,6 +51,8 @@ const VALIDATION_SCHEMA = Yup.object().shape({
     }),
 
   bulk_id: Yup.string().nullable(),
+
+  newsletter_type_id: Yup.string().required('form.required'),
 
   subject: Yup.string().required('form.required'),
 
@@ -86,6 +91,22 @@ export const BuilderNode = (): JSX.Element => {
             name="subject"
             size="md"
           />
+
+          <QuerySuggestions query={NTR.fetch} queryKey="fetch-newsletter-types">
+            {({ data, isLoading }) => (
+              <SelectField
+                isLoading={isLoading}
+                label={t('node.builder.newsletter-type.label')}
+                name="newsletter_type_id"
+                options={data?.results?.map(({ id: value, name: label }) => ({
+                  label,
+                  value,
+                }))}
+                placeholder={t('node.builder.newsletter-type.placeholder')}
+                size="md"
+              />
+            )}
+          </QuerySuggestions>
 
           <QuerySuggestions query={TR.fetch} queryKey="fetch-templates">
             {({ data, isLoading }) => (

@@ -6,6 +6,8 @@
   "helmet": "Newsletter",
   "node.builder.attachment.helper": "Este campo únicamente acepta archivos PNG y PDF.",
   "node.builder.attachment.label": "Carga un archivo adjunto (opcional)",
+  "node.builder.newsletter-type.label": "Categoría",
+  "node.builder.newsletter-type.placeholder": "Selecciona...",
   "node.builder.recipients.helper": "Si se deja este campo en blanco se enviará el correo a toda la lista de contactos.",
   "node.builder.recipients.label": "Selecciona una lista de contactos (opcional)",
   "node.builder.recipients.placeholder": "Selecciona...",

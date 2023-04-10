@@ -6,6 +6,8 @@
   "helmet": "Newsletter",
   "node.builder.attachment.helper": "This field only accepts PNG and PDF files.",
   "node.builder.attachment.label": "Upload an attachment (optional)",
+  "node.builder.newsletter-type.label": "Category",
+  "node.builder.newsletter-type.placeholder": "Select...",
   "node.builder.recipients.helper": "If you leave this field in blank the mail will be sent to all the recipients.",
   "node.builder.recipients.label": "Select a recipients list (optional)",
   "node.builder.recipients.placeholder": "Select...",

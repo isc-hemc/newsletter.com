@@ -174,26 +174,19 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
         const p = new FormData();
 
         p.append('subject', evt?.subject);
+        p.append('newsletter_type_id', evt?.newsletter_type_id);
 
-        if (ctx?.template_id) {
-          p.append('template_id', ctx.template_id);
-        }
-
-        if (evt?.template_id) {
-          p.append('template_id', evt.template_id);
-        }
-
+        if (ctx?.template_id) p.append('template_id', ctx.template_id);
+        if (evt?.template_id) p.append('template_id', evt.template_id);
         if (evt?.attachment) {
           p.append('attachment', evt.attachment, evt.attachment?.name);
         }
 
-        const { data } = await NewsletterResources.post(
-          p as INewsletterPayload,
-        );
+        const res = await NewsletterResources.post(p as INewsletterPayload);
 
         return {
           bulk_id: evt?.bulk_id ? evt?.bulk_id : ctx?.bulk_id,
-          newsletter_id: data?.id,
+          newsletter_id: res?.data?.id,
         };
       },
 

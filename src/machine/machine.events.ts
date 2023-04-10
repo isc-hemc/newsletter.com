@@ -4,19 +4,20 @@ import { IMachineContext } from './machine.context';
  * Events definition that will help the machine to decide to which node move.
  * Also it will store useful data comming from the event in order to be handled
  * in actions or services, this data will not be stored in the context unless
- * it is the intention of the developer.
+ * it is the intention of the developer. All the data in an event object is
+ * temporal and its life-cycle is during its transition.
  */
 export interface IMachineEvents extends IMachineContext {
   /**
-   * Binary representation of a PDF or PNG file, this value is temporal.
+   * Binary representation of a PDF or PNG file.
    */
   attachment: File;
   /**
-   * Template content, it can be HTML code, this value is temporal.
+   * Template content, it can be HTML code.
    */
   content: string;
   /**
-   * File with a bunch of contacts, this value is temporal.
+   * File with a bunch of contacts.
    */
   csv: File;
   /**
@@ -24,11 +25,15 @@ export interface IMachineEvents extends IMachineContext {
    */
   name: string;
   /**
-   * Newsletter subject message, this value is temporal.
+   * Foreign key of a newsletter-type registry.
+   */
+  newsletter_type_id: string;
+  /**
+   * Newsletter subject message.
    */
   subject: string;
   /**
-   * Foreign key of a template registry, this value is temporal.
+   * Foreign key of a template registry.
    */
   template_id: string;
   /**

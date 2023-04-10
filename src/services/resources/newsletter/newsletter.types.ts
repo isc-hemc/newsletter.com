@@ -3,9 +3,13 @@ import { IBaseResource } from 'services';
 
 export interface INewsletterResource extends IBaseResource {
   /**
-   * Binary representation of a PDF or PNG file.
+   * Binary representation of a PDF or PNG file, this field is optional.
    */
   attachment: File;
+  /**
+   * Foreign key of a newsletter-type registry, this field is required.
+   */
+  newsletter_type_id: string;
   /**
    * Newsletter subject message, this field is required.
    */

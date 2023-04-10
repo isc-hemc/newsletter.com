@@ -10,9 +10,6 @@ const CUSTOM_HEADERS = {
 };
 
 export const BulkResources: IResourcesObject<IBulkResource> = {
-  delete: (id: string): Promise<AxiosResponse<unknown>> =>
-    instance.delete(`/v1/bulks/${id}`),
-
   fetch: (): Promise<AxiosResponse<IFetchResponse<IBulkResource>>> =>
     instance.get('/v1/bulks'),
 

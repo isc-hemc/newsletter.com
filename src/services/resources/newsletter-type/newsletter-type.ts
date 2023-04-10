@@ -8,9 +8,6 @@ import {
 
 export const NewsletterTypeResources: IResourcesObject<INewsletterTypeResource> =
   {
-    delete: (id: string): Promise<AxiosResponse<unknown>> =>
-      instance.delete(`/v1/newsletter-types/${id}`),
-
     fetch: (): Promise<
       AxiosResponse<IFetchResponse<INewsletterTypeResource>>
     > => instance.get('/v1/newsletter-types'),

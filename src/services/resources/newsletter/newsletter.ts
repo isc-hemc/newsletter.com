@@ -16,9 +16,6 @@ const CUSTOM_HEADERS = {
 
 export const NewsletterResources: IResourcesObject<INewsletterResource> &
   ISubmissionResource = {
-  delete: (id: string): Promise<AxiosResponse<unknown>> =>
-    instance.delete(`/v1/newsletters/${id}`),
-
   fetch: (): Promise<AxiosResponse<IFetchResponse<INewsletterResource>>> =>
     instance.get('/v1/newsletters'),
 

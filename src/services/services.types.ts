@@ -24,13 +24,6 @@ export interface IFetchResponse<T> {
 
 export interface IResourcesObject<T> {
   /**
-   * Makes a HTTP DELETE request for the given resource.
-   * @params {string} id - resource unique identifier.
-   *
-   * @returns {Promise<AxiosResponse<unknown>>}
-   */
-  delete: (id: string) => Promise<AxiosResponse<unknown>>;
-  /**
    * Makes a HTTP GET all request for the given resource.
    *
    * @returns {Promise<AxiosResponse<IFetchResponse<T>>>}

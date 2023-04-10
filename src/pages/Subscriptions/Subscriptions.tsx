@@ -75,7 +75,7 @@ export const Subscriptions = (): JSX.Element => {
       <main className={cx('relative flex flex-col bg-[#F6F8FB]', HEIGHT_CLASS)}>
         <Header />
 
-        {isLoadingSubscriptions && isLoadingNewsletterTypes ? (
+        {isLoadingSubscriptions || isLoadingNewsletterTypes ? (
           <FadeLoader className="!fixed !inset-1/2" color="#00C7B1" />
         ) : (
           <section className="flex w-full max-w-3xl flex-1 flex-col self-center px-4 py-8">

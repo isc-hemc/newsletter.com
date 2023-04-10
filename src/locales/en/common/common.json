@@ -12,6 +12,8 @@
   "form.newsletter.attachment.helper": "This field only accepts PNG and PDF files.",
   "form.newsletter.attachment.label": "Upload an attachment (optional)",
   "form.newsletter.subject.label": "Mail subject",
+  "form.newsletter.type.label": "Category",
+  "form.newsletter.type.placeholder": "Select...",
   "sidebar.contacts": "Contacts",
   "sidebar.analytics": "Analytics",
   "sidebar.headline": "newsletter",

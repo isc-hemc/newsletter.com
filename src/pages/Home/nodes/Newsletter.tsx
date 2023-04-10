@@ -1,16 +1,48 @@
-import { FileField, InputField } from 'components/forms';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { QuerySuggestions } from 'components/elements';
+import { FileField, InputField, SelectField } from 'components/forms';
 import { H1, H2 } from 'components/typography';
 import { NewsletterContext } from 'contexts';
+import fp from 'lodash/fp';
 import { useCallback, useContext } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import {
+  INewsletterPayload,
+  NewsletterTypeResources as NTR,
+} from 'services/resources';
+import {
+  isValidFileFormat,
+  isValidFileSize,
+  PDF_FORMAT,
+  PNG_FORMAT,
+} from 'utils';
+import * as Yup from 'yup';
 
-const DEFAULT_VALUES = { attachment: undefined, name: '', template_id: '' };
+const VALIDATION_SCHEMA = Yup.object().shape({
+  attachment: Yup.mixed()
+    .test('file-size', 'form.file-size', (v) => {
+      if (fp.isNil(v) || fp.isString(v)) return true;
+      return fp.compose(isValidFileSize, fp.get('size'))(v);
+    })
+    .test('file-format', 'form.file-format', (v) => {
+      if (fp.isNil(v) || fp.isString(v)) return true;
+      return fp.compose(
+        isValidFileFormat([PDF_FORMAT, PNG_FORMAT]),
+        fp.get('type'),
+      )(v);
+    }),
 
-type INewsletterPayload = {
-  subject: string;
-  template_id?: string;
-  attachment?: File;
+  newsletter_type_id: Yup.string().required('form.required'),
+
+  subject: Yup.string().required('form.required'),
+});
+
+const DEFAULT_VALUES: INewsletterPayload = {
+  attachment: undefined,
+  newsletter_type_id: undefined,
+  subject: '',
+  template_id: undefined,
 };
 
 export const NewsletterNode = (): JSX.Element => {
@@ -19,6 +51,7 @@ export const NewsletterNode = (): JSX.Element => {
   const methods = useForm<INewsletterPayload>({
     defaultValues: DEFAULT_VALUES,
     mode: 'all',
+    resolver: yupResolver(VALIDATION_SCHEMA),
   });
 
   const { t } = useTranslation('page:home');
@@ -46,6 +79,24 @@ export const NewsletterNode = (): JSX.Element => {
             name="subject"
             size="md"
           />
+
+          <QuerySuggestions query={NTR.fetch} queryKey="fetch-newsletter-types">
+            {({ data, isLoading }) => (
+              <SelectField
+                isLoading={isLoading}
+                label={t('form.newsletter.type.label', { ns: 'common' })}
+                name="newsletter_type_id"
+                options={data?.results?.map(({ id: value, name: label }) => ({
+                  label,
+                  value,
+                }))}
+                placeholder={t('form.newsletter.type.placeholder', {
+                  ns: 'common',
+                })}
+                size="md"
+              />
+            )}
+          </QuerySuggestions>
 
           <FileField
             accept=".png,.pdf"

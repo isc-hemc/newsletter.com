@@ -1,0 +1,10 @@
+{
+  "created-at": "Fecha de creación",
+  "errors": "Registros ignorados (duplicados, formato, etc.)",
+  "helmet": "Newsletter: Listas de contactos",
+  "inserted": "Registros creados",
+  "name": "Nombre de la lista",
+  "subtitle": "En esta sección podrás visualizar las listas de contactos que has cargado en el proceso de creación y envio de newsletters.",
+  "title": "Listas de Contactos",
+  "updated-at": "Fecha de actualización"
+}

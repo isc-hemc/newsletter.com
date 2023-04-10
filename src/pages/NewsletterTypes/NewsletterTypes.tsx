@@ -37,7 +37,7 @@ export const NewsletterTypes = (): JSX.Element => {
 
       <H2 className="mb-4 lg:mb-8">{t('subtitle')}</H2>
 
-      <Table fallbackRows={10} headers={TABLE_HEADERS} isLoading={isLoading}>
+      <Table fallbackRows={5} headers={TABLE_HEADERS} isLoading={isLoading}>
         {types?.results?.map((item: INewsletterTypeResource) => (
           <T.Tr key={nanoid()}>
             <T.Td>{item?.name}</T.Td>

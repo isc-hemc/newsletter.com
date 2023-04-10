@@ -1,6 +1,7 @@
 import common from './common/common.json';
 import errors from './common/errors.json';
 import analytics from './pages/analytics.json';
+import bulks from './pages/bulks.json';
 import contacts from './pages/contacts.json';
 import home from './pages/home.json';
 import newsletterTypes from './pages/newsletter-types.json';
@@ -12,6 +13,7 @@ export const translationsEN = {
   common,
   errors,
   'page:analytics': analytics,
+  'page:bulks': bulks,
   'page:contacts': contacts,
   'page:home': home,
   'page:newsletterTypes': newsletterTypes,

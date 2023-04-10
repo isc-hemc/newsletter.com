@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Dashboard } from 'Dashboard';
 import { i18n } from 'locales';
 import { AnalyticsPage } from 'pages/Analytics';
+import { BulksPage } from 'pages/Bulks';
 import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import { NewsletterTypesPage } from 'pages/NewsletterTypes';
@@ -30,6 +31,10 @@ const ROUTER = createBrowserRouter([
       {
         element: <ContactsPage />,
         path: 'contacts',
+      },
+      {
+        element: <BulksPage />,
+        path: 'bulks',
       },
       {
         element: <TemplatesPage />,

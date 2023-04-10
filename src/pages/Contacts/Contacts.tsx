@@ -74,7 +74,7 @@ export const Contacts = (): JSX.Element => {
         </Button>
       </div>
 
-      <Table fallbackRows={10} headers={TABLE_HEADERS} isLoading={isLoading}>
+      <Table fallbackRows={5} headers={TABLE_HEADERS} isLoading={isLoading}>
         {contacts?.results?.map((item: IContactResource) => (
           <T.Tr key={nanoid()}>
             <T.Td>{item?.name}</T.Td>

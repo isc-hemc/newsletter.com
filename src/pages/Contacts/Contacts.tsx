@@ -1,5 +1,5 @@
 import { Button } from 'components/elements';
-import { Input } from 'components/inputs';
+// import { Input } from 'components/inputs';
 import { Table } from 'components/layout';
 import { BaseTable as T } from 'components/modules';
 import { H1, H2 } from 'components/typography';
@@ -57,11 +57,11 @@ export const Contacts = (): JSX.Element => {
 
       <H2 className="mb-4 lg:mb-8">{t('subtitle')}</H2>
 
-      <div className="mb-4 flex flex-col-reverse justify-between gap-4 lg:flex-row">
-        <Input
+      <div className="mb-4 flex flex-col-reverse justify-between gap-4 lg:flex-row-reverse">
+        {/* <Input
           className="lg:max-w-[320px]"
           placeholder={t('search-by.email')}
-        />
+        /> */}
 
         <Button
           className="h-10 self-end px-4 text-xs"

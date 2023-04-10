@@ -9,6 +9,7 @@ import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import { NotFoundPage } from 'pages/NotFound';
 import { SegmentsPage } from 'pages/Segments';
+import { SubscriptionsPage } from 'pages/Subscriptions';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
@@ -35,6 +36,10 @@ const ROUTER = createBrowserRouter([
       },
     ],
     element: <Dashboard />,
+  },
+  {
+    element: <SubscriptionsPage />,
+    path: '/contacts/:id/subscriptions',
   },
   {
     element: <HomePage />,

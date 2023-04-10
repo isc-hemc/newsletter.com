@@ -7,6 +7,7 @@ import { i18n } from 'locales';
 import { AnalyticsPage } from 'pages/Analytics';
 import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
+import { NewsletterTypesPage } from 'pages/NewsletterTypes';
 import { NotFoundPage } from 'pages/NotFound';
 import { SubscriptionsPage } from 'pages/Subscriptions';
 import { TemplatesPage } from 'pages/Templates';
@@ -33,6 +34,10 @@ const ROUTER = createBrowserRouter([
       {
         element: <TemplatesPage />,
         path: 'templates',
+      },
+      {
+        element: <NewsletterTypesPage />,
+        path: 'newsletter-types',
       },
     ],
     element: <Dashboard />,

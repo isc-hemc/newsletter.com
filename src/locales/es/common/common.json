@@ -17,6 +17,7 @@
   "sidebar.analytics": "Analítica",
   "sidebar.contacts": "Contactos",
   "sidebar.headline": "newsletter",
+  "sidebar.newsletter-types": "Tipos de Newsletter",
   "sidebar.templates": "Plantillas",
   "version": "v{{value}}"
 }

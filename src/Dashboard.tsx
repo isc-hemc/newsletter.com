@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import { use100vh } from 'react-div-100vh';
 import { useTranslation } from 'react-i18next';
 import { FaChartBar, FaFileAlt } from 'react-icons/fa';
-import { RiContactsBook2Fill } from 'react-icons/ri';
+import { RiContactsBook2Fill, RiMailSettingsFill } from 'react-icons/ri';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const NAVIGATION_ITEMS = [
@@ -24,6 +24,11 @@ const NAVIGATION_ITEMS = [
     icon: FaFileAlt,
     label: i18n.t('sidebar.templates', { ns: 'common' }),
     to: '/templates',
+  },
+  {
+    icon: RiMailSettingsFill,
+    label: i18n.t('sidebar.newsletter-types', { ns: 'common' }),
+    to: '/newsletter-types',
   },
 ];
 

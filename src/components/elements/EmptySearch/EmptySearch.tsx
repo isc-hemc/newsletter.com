@@ -9,6 +9,10 @@ const Box = clomp.div`
   flex-col
   items-center
   justify-center
+  rounded-xl
+  border-2
+  border-gray-200
+  bg-white
 `;
 
 const Text = clomp.p`

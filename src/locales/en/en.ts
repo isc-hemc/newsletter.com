@@ -16,7 +16,7 @@ export const translationsEN = {
   'page:bulks': bulks,
   'page:contacts': contacts,
   'page:home': home,
-  'page:newsletterTypes': newsletterTypes,
+  'page:newsletter-types': newsletterTypes,
   'page:not-found': notFound,
   'page:subscriptions': subscriptions,
   'page:templates': templates,

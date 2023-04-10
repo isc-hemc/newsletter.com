@@ -21,7 +21,9 @@ export const Analytics = (): JSX.Element => {
         <h3 className="text-center text-xl font-medium uppercase text-primary-500">
           {t('wip.title')}
         </h3>
-        <p className="text-center text-sm text-primary-500">{t('wip.quote')}</p>
+        <p className="text-center text-sm font-medium tracking-wider text-primary-500">
+          {t('wip.quote')}
+        </p>
       </div>
     </>
   );

@@ -4,7 +4,7 @@
   "created-at": "Created date",
   "email": "Email",
   "helmet": "Newsletter: Contacts",
-  "names": "Name(s)",
+  "name": "Name(s)",
   "last-name": "Last name",
   "search-by.email": "Search by email...",
   "subtitle": "In this section you can view and add records to the contact list of the platform. By sending a newsletter, these contacts will make up the audience of your campaign and can be segmented in different ways.",

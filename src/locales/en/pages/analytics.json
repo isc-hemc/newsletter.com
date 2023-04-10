@@ -1,5 +1,5 @@
 {
   "helmet": "Newsletter: Analytics",
-  "heading": "Analytics",
-  "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  "subtitle": "In this section you can visualize information graphically regarding the records of the platform.",
+  "title": "Analytics"
 }

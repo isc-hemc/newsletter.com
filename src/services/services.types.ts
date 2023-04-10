@@ -8,7 +8,7 @@ export interface IBaseResource {
   /**
    * Registry unique identifier.
    */
-  id: number;
+  id: string;
   /**
    * Updated date in a fixed-precision format.
    */

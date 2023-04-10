@@ -1,5 +1,6 @@
 {
   "helmet": "Newsletter: Subscriptions",
+  "patch.success": "The subscriptions were successfully updated.",
   "subtitle": "You are currently subscribed to our newsletter. On this page you can manage what kind of emails you want to receive, if you want to cancel the subscription to all our publications, uncheck all the options shown below.",
   "title": "subscription management"
 }

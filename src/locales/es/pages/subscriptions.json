@@ -1,5 +1,6 @@
 {
   "helmet": "Newsletter: Suscripciones",
+  "patch.success": "Las subscripciones fueron actualizadas con éxito.",
   "subtitle": "Actualmente estas subscrito a nuestro newsletter. En esta página podrás administrar que tipo de correos quieres recibir, en caso de querer anular la suscripción a todas nuestras publicaciones desmarca todas las opciones que a continuación se muestrán.",
   "title": "gestión de subscriptiones"
 }

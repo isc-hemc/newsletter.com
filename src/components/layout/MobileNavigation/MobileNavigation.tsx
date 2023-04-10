@@ -1,18 +1,9 @@
-import { css, cx } from '@emotion/css';
+import { cx } from '@emotion/css';
 import { clomp } from 'clomp';
 import { nanoid } from 'nanoid';
 import { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { INavigationItem, IPropsOf } from 'types.d';
-
-const BACKGROUND_CLASS = css`
-  background: linear-gradient(
-    296.77deg,
-    #00677f 8.35%,
-    #25c4b9 63.28%,
-    #2cd5c4 77.22%
-  );
-`;
 
 const NavItem = clomp(Link)`
   flex
@@ -47,7 +38,7 @@ const NavigationItem: React.FC<INavigationItemProps> = ({
     >
       <Icon color="#384967" size={24} />
       <p
-        className={cx('text-[.5rem] text-primary-500', {
+        className={cx('text-[.4rem] text-primary-500 md:text-[.5rem]', {
           'font-bold': isSelected,
         })}
       >
@@ -58,6 +49,7 @@ const NavigationItem: React.FC<INavigationItemProps> = ({
 };
 
 const Nav = clomp.nav`
+  bg-secondary-500
   fixed
   bottom-0
   flex
@@ -77,11 +69,10 @@ export interface IMobileNavigationProps extends IPropsOf<'nav'> {
 }
 
 export const MobileNavigation: React.FC<IMobileNavigationProps> = ({
-  className,
   navigation,
   ...rest
 }): JSX.Element => (
-  <Nav className={cx(BACKGROUND_CLASS, className)} {...rest}>
+  <Nav {...rest}>
     {navigation?.map((item) => (
       <NavigationItem key={nanoid()} {...item} />
     ))}

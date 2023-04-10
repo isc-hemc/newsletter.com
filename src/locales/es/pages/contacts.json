@@ -4,10 +4,10 @@
   "created-at": "Fecha de creación",
   "email": "Correo electrónico",
   "helmet": "Newsletter: Contactos",
-  "heading": "Contactos",
   "name": "Nombre(s)",
   "last-name": "Apellidos",
   "search-by.email": "Buscar por correo electrónico...",
-  "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "subtitle": "En esta sección podrás visualizar y agregar registros a la lista de contactos de la plataforma. Al enviar un newsletter, dichos contactos conformarán la audiencia de tu campaña y podrán ser segmentados de diferentes formas.",
+  "title": "Contactos",
   "updated-at": "Fecha de actualización"
 }

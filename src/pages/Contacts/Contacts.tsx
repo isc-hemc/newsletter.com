@@ -53,9 +53,9 @@ export const Contacts = (): JSX.Element => {
         <title>{t('helmet')}</title>
       </Helmet>
 
-      <H1 className="mb-2">{t('heading')}</H1>
+      <H1 className="mb-2">{t('title')}</H1>
 
-      <H2 className="mb-4 lg:mb-8">{t('subheading')}</H2>
+      <H2 className="mb-4 lg:mb-8">{t('subtitle')}</H2>
 
       <div className="mb-4 flex flex-col-reverse justify-between gap-4 lg:flex-row">
         <Input

@@ -187,6 +187,7 @@ export const Machine = createMachine<IMachineContext, IMachineEvents>(
         return {
           bulk_id: evt?.bulk_id ? evt?.bulk_id : ctx?.bulk_id,
           newsletter_id: res?.data?.id,
+          template_id: evt?.template_id ? evt?.template_id : ctx?.template_id,
         };
       },
 

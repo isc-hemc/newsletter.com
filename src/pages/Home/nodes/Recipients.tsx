@@ -5,9 +5,9 @@ import { useCallback, useContext } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-const DEFAULT_VALUES = { csv: undefined, name: '' };
-
 type IBulkPayload = { name: string; csv?: File };
+
+const DEFAULT_VALUES = { csv: undefined, name: '' };
 
 export const RecipientsNode = (): JSX.Element => {
   const context = useContext(NewsletterContext);

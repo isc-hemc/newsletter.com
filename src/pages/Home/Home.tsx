@@ -36,12 +36,13 @@ const NODES = {
 const Node = (): JSX.Element => {
   const context = useContext(NewsletterContext);
 
-  const isNotFormNode = useSelector(
+  const isInitialOrFinalNode = useSelector(
     context,
-    ({ matches }) =>
-      matches(MachineNodes.IDLE) ||
-      matches(MachineNodes.REVIEW) ||
-      matches(MachineNodes.RESULT),
+    ({ matches }) => matches(MachineNodes.IDLE) || matches(MachineNodes.RESULT),
+  );
+
+  const isReviewNode = useSelector(context, ({ matches }) =>
+    matches(MachineNodes.REVIEW),
   );
 
   const isTemplateNode = useSelector(context, ({ matches }) =>
@@ -60,9 +61,10 @@ const Node = (): JSX.Element => {
       className={cx(
         'flex w-full max-w-4xl flex-1 flex-col self-center overflow-x-hidden px-4 py-8',
         {
-          '!max-w-3xl': isNotFormNode,
+          '!max-w-3xl': isInitialOrFinalNode,
           '!max-w-6xl': isTemplateNode,
-          'pb-20': !isNotFormNode,
+          '!max-w-xl': isReviewNode,
+          'pb-20': !isInitialOrFinalNode && !isReviewNode,
         },
       )}
     >
